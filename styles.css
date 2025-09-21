@@ -137,6 +137,19 @@ footer { background-color: #333; color: white; text-align: center; padding: 1rem
 section details { margin-bottom: 1.5rem; }
 section h3 { margin-top: 2rem; margin-bottom: 1rem; border-bottom: 1px solid #ddd; padding-bottom: .5rem; }
 
+/* Publications: alternating card colors for readability */
+.pub-list details {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  background: var(--surface);
+}
+.pub-list details:nth-of-type(4n+1) { background: #E3F2FD; }
+.pub-list details:nth-of-type(4n+2) { background: #FFEBEE; }
+.pub-list details:nth-of-type(4n+3) { background: #E8F5E9; }
+.pub-list details:nth-of-type(4n+4) { background: #FFFDE7; }
+.pub-list summary { font-weight: 600; cursor: pointer; }
+
 /* Project/Blog detail nav */
 .project-navigation { display: flex; justify-content: space-between; margin-top: 40px; padding-top: 20px; border-top: 1px solid #ccc; }
 .project-navigation a { text-decoration: none; font-size: 1.2rem; color: var(--brand); transition: color .2s ease; }
