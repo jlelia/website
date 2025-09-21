@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,60 +26,51 @@
     <link rel="manifest" href="/site.webmanifest">
     <meta name="theme-color" content="#ffffff">
     
-    <title>Blog #3 - James L. Elia</title>
-    <style>
-      body { font-family: Arial, sans-serif; margin:0; padding:0; display:flex; flex-direction:column; min-height:100vh; line-height:1.6; }
-      header { background:#333; color:#fff; padding:1rem; text-align:center; }
-      nav a { color:#fff; text-decoration:none; margin:0 15px; font-size:1.1rem; }
-      main { flex:1; padding:2rem; max-width:800px; margin:0 auto; }
-      h2 { margin-top:0; }
-      footer { background:#333; color:#fff; text-align:center; padding:1rem; }
-    
-    .project-navigation {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 40px;
-      padding-top: 20px;
-      border-top: 1px solid #ccc;
-    }
+      <!-- Performance Optimizations -->
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
-    img {
-      max-width: 100%;
-      height: auto;
-    }
-
-    .project-navigation a {
-      text-decoration: none;
-      font-size: 1.2rem;
-      color: #007acc;
-      transition: color 0.2s ease;
-    }
-
-    .project-navigation a:hover {
-      color: #005f99;
-    }
-    .equation {
-      font-family: Menlo, Consolas, "Courier New", monospace; /* like code */
-      background: #f5f5f5;
-      padding: 0.5em 1em;
-      margin: 1em 0;
-      text-align: center;
-      border-radius: 4px;
-    }
-
-    </style>
+      <title>Blog #3 - James L. Elia</title>
+      <style>
+         :root { --bg-grad-start:#f8fafc; --bg-grad-end:#ffffff; --text:#111827; --muted:#6b7280; --surface:#ffffff; --border:#e5e7eb; --brand:#0ea5e9; --brand-dark:#0284c7; }
+         *{ box-sizing:border-box; }
+         body { background:linear-gradient(to bottom,var(--bg-grad-start),var(--bg-grad-end)); font-family:"Inter",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; margin:0; padding:0; display:flex; flex-direction:column; min-height:100vh; line-height:1.6; color:var(--text); }
+         .container{ max-width:1100px; margin:0 auto; padding:0 1rem; }
+         header { background:#111827; color:#fff; }
+         .header-inner{ display:flex; align-items:center; justify-content:space-between; gap:1rem; padding:1rem 0; }
+         .headshot{ width:75px; height:75px; border-radius:50%; object-fit:cover; margin-right:12px; border:2px solid #fff; }
+         h1{ font-size:1.5rem; font-weight:700; margin:0; }
+         nav{ display:flex; flex-wrap:wrap; gap:.75rem; }
+         nav a{ color:#fff; text-decoration:none; padding:.4rem .7rem; border-radius:.5rem; font-size:1rem; transition:background-color .2s ease,color .2s ease; }
+         nav a:hover{ background:rgba(255,255,255,0.1); }
+         @media (max-width:640px){ .header-inner{ flex-direction:column; align-items:center; } nav{ justify-content:center; } }
+         main { flex:1; padding:2rem; max-width:800px; margin:0 auto; }
+         h2 { margin-top:0; }
+         footer { background:#333; color:#fff; text-align:center; padding:1rem; }
+         .project-navigation { display:flex; justify-content:space-between; margin-top:40px; padding-top:20px; border-top:1px solid #ccc; }
+         .project-navigation a { text-decoration:none; font-size:1.2rem; color:#0ea5e9; transition: color .2s ease; }
+         .project-navigation a:hover { color:#0284c7; }
+         img { max-width:100%; height:auto; }
+         .equation { font-family: Menlo,Consolas,"Courier New", monospace; background:#f5f5f5; padding:.5em 1em; margin:1em 0; text-align:center; border-radius:4px; }
+      </style>
   </head>
   <body>
-    <header>
-      <h1>James L. Elia</h1>
-      <nav>
-        <a href="/">Home</a>
-        <a href="/about">About</a>
-        <a href="/publications">Publications</a>
-        <a href="/projects">Projects</a>
-        <a href="/blog">Blog</a>
-      </nav>
-    </header>
+      <header>
+         <div class="header-inner container">
+            <div style="display:flex; align-items:center; gap:.75rem;">
+               <img src="/images/headshot.png" alt="James L. Elia headshot" class="headshot">
+               <h1>James L. Elia</h1>
+            </div>
+            <nav aria-label="Primary">
+               <a href="/">Home</a>
+               <a href="/about">About</a>
+               <a href="/publications">Publications</a>
+               <a href="/projects">Projects</a>
+               <a href="/blog">Blog</a>
+            </nav>
+         </div>
+      </header>
   
     <main>
       <h2>Blog #3: The Joy of Math</h2>
@@ -239,16 +231,16 @@
         Not bad for marshmallows and a microwave!
       </p>
       <p>James</p>
-      <div class="project-navigation">
-        <a class="nav-left" href="blog2.html">← Blog 2</a>
-        <a class="nav-right" href="blog.html">Blog →</a>
-      </div>
+         <div class="project-navigation">
+            <a class="nav-left" href="/blog2">← Blog 2</a>
+            <a class="nav-right" href="/blog">Blog →</a>
+         </div>
 
     </main>  
 
-    <footer>
-      <p>© 2025 James L. Elia</p>
-    </footer>
+      <footer>
+         <p>© 2025 James L. Elia</p>
+      </footer>
   
 
 </body></html>

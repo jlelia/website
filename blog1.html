@@ -3,70 +3,72 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+
     <!-- SEO -->
     <meta name="description" content="A blog about a biologist learning about computer science">
     <meta name="keywords" content="James Elia, blog, blog1, computer-science, biology, math">
     <meta name="author" content="James L. Elia">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://www.jlelia.net/blog1">
-  
+
     <!-- Site Icons -->
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    
+
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="Blog #1 – James L. Elia">
     <meta property="og:description" content="Description of personal journey">
-    <meta property="og:image" content="https://www.jlelia.net/images/headshot.webp">
+    <meta property="og:image" content="https://www.jlelia.net/images/headshot.png">
     <meta property="og:url" content="https://www.jlelia.net/blog1">
     <meta property="og:type" content="website">
-    
+
     <!-- PWA / Mobile Enhancements -->
     <link rel="manifest" href="/site.webmanifest">
     <meta name="theme-color" content="#ffffff">
-    
+
+    <!-- Performance Optimizations -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
     <title>Blog #1 - James L. Elia</title>
     <style>
-      body { font-family: Arial, sans-serif; margin:0; padding:0; display:flex; flex-direction:column; min-height:100vh; line-height: 1.6; }
-      header { background:#333; color:#fff; padding:1rem; text-align:center; }
-      nav a { color:#fff; text-decoration:none; margin:0 15px; font-size:1.1rem; }
+      :root { --bg-grad-start:#f8fafc; --bg-grad-end:#ffffff; --text:#111827; --muted:#6b7280; --surface:#ffffff; --border:#e5e7eb; --brand:#0ea5e9; --brand-dark:#0284c7; }
+      * { box-sizing:border-box; }
+      body { background:linear-gradient(to bottom,var(--bg-grad-start),var(--bg-grad-end)); font-family:"Inter",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; margin:0; padding:0; display:flex; flex-direction:column; min-height:100vh; color:var(--text); line-height:1.6; }
+      .container { max-width:1100px; margin:0 auto; padding:0 1rem; }
+      header { background-color:#111827; color:#fff; }
+      .header-inner { display:flex; align-items:center; justify-content:space-between; gap:1rem; padding:1rem 0; }
+      .headshot{ width:75px; height:75px; border-radius:50%; object-fit:cover; margin-right:12px; border:2px solid #fff; }
+      h1{ font-size:1.5rem; font-weight:700; margin:0; }
+      nav{ display:flex; flex-wrap:wrap; gap:.75rem; }
+      nav a{ color:#fff; text-decoration:none; padding:.4rem .7rem; border-radius:.5rem; font-size:1rem; transition:background-color .2s ease,color .2s ease; }
+      nav a:hover{ background:rgba(255,255,255,0.1); }
+      @media (max-width:640px){ .header-inner{ flex-direction:column; align-items:center; } nav{ justify-content:center; } }
       main { flex:1; padding:2rem; max-width:800px; margin:0 auto; }
       h2 { margin-top:0; }
       footer { background:#333; color:#fff; text-align:center; padding:1rem; }
-    
-    .project-navigation {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 40px;
-      padding-top: 20px;
-      border-top: 1px solid #ccc;
-    }
-
-    .project-navigation a {
-      text-decoration: none;
-      font-size: 1.2rem;
-      color: #007acc;
-      transition: color 0.2s ease;
-    }
-
-    .project-navigation a:hover {
-      color: #005f99;
-    }
-
+      .project-navigation { display:flex; justify-content:space-between; margin-top:40px; padding-top:20px; border-top:1px solid #ccc; }
+      .project-navigation a { text-decoration:none; font-size:1.2rem; color:#0ea5e9; transition: color .2s ease; }
+      .project-navigation a:hover { color:#0284c7; }
     </style>
   </head>
   <body>
     <header>
-      <h1>James L. Elia</h1>
-      <nav>
-        <a href="/">Home</a>
-        <a href="/about">About</a>
-        <a href="/publications">Publications</a>
-        <a href="/projects">Projects</a>
-        <a href="/blog">Blog</a>
-      </nav>
+      <div class="header-inner container">
+        <div style="display:flex; align-items:center; gap:.75rem;">
+          <img src="/images/headshot.png" alt="James L. Elia headshot" class="headshot">
+          <h1>James L. Elia</h1>
+        </div>
+        <nav aria-label="Primary">
+          <a href="/">Home</a>
+          <a href="/about">About</a>
+          <a href="/publications">Publications</a>
+          <a href="/projects">Projects</a>
+          <a href="/blog">Blog</a>
+        </nav>
+      </div>
     </header>
   
     <main>
@@ -113,8 +115,8 @@
       <p>I will continue to share updates on my quantitative journey! If you have any advice for me, please feel free to reach out at james.elia@yale.edu</p>
       <p>James</p>
       <div class="project-navigation">
-        <a class="nav-left" href="blog.html">← Blog</a>
-        <a class="nav-right" href="blog2.html">Blog 2 →</a>
+        <a class="nav-left" href="/blog">← Blog</a>
+        <a class="nav-right" href="/blog2">Blog 2 →</a>
       </div>
 
     </main>  

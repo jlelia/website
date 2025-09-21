@@ -3,129 +3,72 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+
     <!-- SEO -->
     <meta name="description" content="List of publications for James L. Elia, scientist and tech enthusiast.">
     <meta name="keywords" content="publications, resume, portfolio, James Elia, Yale, scientist, PhD, biology">
     <meta name="author" content="James L. Elia">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://www.jlelia.net/publications">
-  
+
     <!-- Site Icons -->
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    
+
     <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="James L. Elia">
-    <meta property="og:description" content="Online resume and portfolio of James L. Elia, scientist and tech enthusiast.">
-    <meta property="og:image" content="https://www.jlelia.net/about/headshot.png">
-    <meta property="og:url" content="https://www.jlelia.net/">
+    <meta property="og:title" content="Publications - James L. Elia">
+    <meta property="og:description" content="Research articles, presentations, and other publications by James L. Elia.">
+    <meta property="og:image" content="https://www.jlelia.net/images/headshot.png">
+    <meta property="og:url" content="https://www.jlelia.net/publications">
     <meta property="og:type" content="website">
-    
+
     <!-- PWA / Mobile Enhancements -->
     <link rel="manifest" href="/site.webmanifest">
     <meta name="theme-color" content="#ffffff">
-    
+
     <!-- Performance Optimizations -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
     <title>Publications - James L. Elia</title>
     <style>
-      body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
-	line-height: 1.6;
-      }
-      header {
-        background-color: #333;
-        color: white;
-        padding: 1rem;
-        text-align: center;
-      }
-      nav {
-        margin-top: 1rem;
-      }
-      nav a {
-        color: white;
-        text-decoration: none;
-        margin: 0 15px;
-        font-size: 1.2rem;
-      }
-      nav a:hover {
-        text-decoration: underline;
-      }
-      main {
-        padding: 2rem;
-        flex: 1; /* Makes sure the main content area takes up the remaining space */
-      }
-      .intro {
-        background: linear-gradient(135deg, #f9f9f9, #ffffff);
-        padding: 2rem;
-        border-bottom: 2px solid #ddd;
-        margin-bottom: 2rem;
-        text-align: left;
-        border-radius: 8px;
-      }
-      .intro h2 {
-        font-size: 2rem;
-        margin-bottom: 1rem;
-        text-align: center;
-      }
-      .intro p {
-        font-size: 1rem;
-        line-height: 1.6;
-        margin-bottom: 1rem;
-      }
-      .intro ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-      }
-      .intro ul li {
-        font-size: 1rem;
-        line-height: 1.6;
-        padding: 0.5rem 0;
-        border-bottom: 1px solid #eee;
-      }
-      .intro ul li:last-child {
-        border-bottom: none;
-      }
-      /* New rule: add spacing between each publication */
-      section details {
-        margin-bottom: 1.5rem;
-      }
-      /* Optional: add a little visual separation for the section headings */
-      section h3 {
-        margin-top: 2rem;
-        margin-bottom: 1rem;
-        border-bottom: 1px solid #ddd;
-        padding-bottom: 0.5rem;
-      }
-      footer {
-        background-color: #333;
-        color: white;
-        text-align: center;
-        padding: 1rem;
-        margin-top: auto; /* Ensures footer stays at the bottom but does not overlap content */
-      }
-    </style>  
+      :root { --bg-grad-start:#f8fafc; --bg-grad-end:#ffffff; --text:#111827; --muted:#6b7280; --surface:#ffffff; --border:#e5e7eb; --brand:#0ea5e9; --brand-dark:#0284c7; }
+      * { box-sizing: border-box; }
+      body { background: linear-gradient(to bottom,var(--bg-grad-start),var(--bg-grad-end)); font-family:"Inter",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; margin:0; padding:0; display:flex; flex-direction:column; min-height:100vh; color:var(--text); line-height:1.6; }
+      .container { max-width:1100px; margin:0 auto; padding:0 1rem; }
+      header { background-color:#111827; color:#fff; }
+      .header-inner { display:flex; align-items:center; justify-content:space-between; gap:1rem; padding:1rem 0; }
+      .headshot{ width:75px; height:75px; border-radius:50%; object-fit:cover; margin-right:12px; border:2px solid #fff; }
+      h1{ font-size:1.5rem; font-weight:700; margin:0; }
+      nav{ display:flex; flex-wrap:wrap; gap:.75rem; }
+      nav a{ color:#fff; text-decoration:none; padding:.4rem .7rem; border-radius:.5rem; font-size:1rem; transition:background-color .2s ease,color .2s ease; }
+      nav a:hover{ background-color:rgba(255,255,255,0.1); }
+      @media (max-width:640px){ .header-inner{ flex-direction:column; align-items:center; } nav{ justify-content:center; } }
+      main{ padding:2rem; flex:1; }
+      .intro{ background: linear-gradient(135deg,#f8f9fa,#ffffff); padding:2rem; border-bottom:2px solid #ddd; margin-bottom:2rem; border-radius:12px; }
+      .intro h2{ font-size:1.8rem; margin:0 0 1rem; text-align:center; }
+      section details{ margin-bottom:1.5rem; }
+      section h3{ margin-top:2rem; margin-bottom:1rem; border-bottom:1px solid #ddd; padding-bottom:.5rem; }
+      footer{ background-color:#333; color:#fff; text-align:center; padding:1rem; margin-top:auto; }
+    </style>
   </head>
   <body>
     <header>
-      <h1>James L. Elia</h1>
-      <nav>
-        <a href="/">Home</a>
-        <a href="/about">About</a>
-        <a href="/publications">Publications</a>
-        <a href="/projects">Projects</a>
-        <a href="/blog">Blog</a>
-      </nav>
+      <div class="header-inner container">
+        <div style="display:flex; align-items:center; gap:.75rem;">
+          <img src="/images/headshot.png" alt="James L. Elia headshot" class="headshot">
+          <h1>James L. Elia</h1>
+        </div>
+        <nav aria-label="Primary">
+          <a href="/">Home</a>
+          <a href="/about">About</a>
+          <a href="/publications">Publications</a>
+          <a href="/projects">Projects</a>
+          <a href="/blog">Blog</a>
+        </nav>
+      </div>
     </header>
   
     <main>
