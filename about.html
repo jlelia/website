@@ -28,69 +28,20 @@
     <meta name="theme-color" content="#ffffff">
 
     <!-- Performance Optimizations -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="/images/headshot.png" imagesrcset="/images/headshot.png 1x" fetchpriority="high">
+  <link rel="stylesheet" href="/styles.css">
 
     <title>About - James L. Elia</title>
-    <style>
-      :root {
-        --bg-grad-start: #f8fafc;
-        --bg-grad-end: #ffffff;
-        --text: #111827;
-        --muted: #6b7280;
-        --surface: #ffffff;
-        --border: #e5e7eb;
-        --brand: #0ea5e9;
-        --brand-dark: #0284c7;
-      }
-
-      * { box-sizing: border-box; }
-
-      body {
-        background: linear-gradient(to bottom, var(--bg-grad-start), var(--bg-grad-end));
-        font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
-        color: var(--text);
-        line-height: 1.6;
-      }
-
-      .container { max-width: 1100px; margin: 0 auto; padding: 0 1rem; }
-
-      header { background-color: #111827; color: white; }
-      .header-inner {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 1rem;
-        padding: 1rem 0;
-      }
-      .headshot { width: 75px; height: 75px; border-radius: 50%; object-fit: cover; margin-right: 12px; border: 2px solid white; }
-      h1 { font-size: 1.5rem; font-weight: 700; margin: 0; }
-      nav { display: flex; flex-wrap: wrap; gap: .75rem; }
-      nav a { color: white; text-decoration: none; padding: .4rem .7rem; border-radius: .5rem; font-size: 1rem; transition: background-color .2s ease, color .2s ease; }
-      nav a:hover { background-color: rgba(255,255,255,0.1); }
-      @media (max-width: 640px) { .header-inner { flex-direction: column; align-items: center; } nav { justify-content: center; } }
-
-      main { padding: 2rem; flex: 1; }
-
-      .bio { background: linear-gradient(135deg, #f8f9fa, #ffffff); padding: 2rem; border-bottom: 2px solid #ddd; margin-bottom: 2rem; border-radius: 12px; }
-      .bio h2 { font-size: 2rem; margin-bottom: 1rem; text-align: center; }
-      .bio p { font-size: 1rem; margin-bottom: 1rem; }
-      img { max-width: 100%; height: auto; }
-
-      footer { background-color: #333; color: white; text-align: center; padding: 1rem; margin-top: auto; }
-    </style>  
+    
   </head>
   <body>
     <header>
       <div class="header-inner container">
         <div style="display:flex; align-items:center; gap:.75rem;">
-          <img src="/images/headshot.png" alt="James L. Elia headshot" class="headshot">
+          <img src="/images/headshot.png" alt="James L. Elia headshot" class="headshot" width="75" height="75">
           <h1>James L. Elia</h1>
         </div>
         <nav aria-label="Primary">

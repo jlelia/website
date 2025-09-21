@@ -28,192 +28,20 @@
   <meta name="theme-color" content="#ffffff">
   
   <!-- Performance Optimizations -->
+  <link rel="preload" as="image" href="/images/headshot.png" imagesrcset="/images/headshot.png 1x" fetchpriority="high">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
 
   <title>Home</title>
-  <style>
-    :root {
-      --bg-grad-start: #f8fafc;
-      --bg-grad-end: #ffffff;
-      --text: #111827;
-      --muted: #6b7280;
-      --surface: #ffffff;
-      --border: #e5e7eb;
-      --brand: #0ea5e9; /* cyan-500 */
-      --brand-dark: #0284c7; /* cyan-600 */
-    }
-
-    * { box-sizing: border-box; }
-
-    body {
-      background: linear-gradient(to bottom, var(--bg-grad-start), var(--bg-grad-end));
-      font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-      color: var(--text);
-    }
-
-    .container { max-width: 1100px; margin: 0 auto; padding: 0 1rem; }
-
-    header { background-color: #111827; color: white; }
-    .header-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-      padding: 1rem 0;
-    }
-
-    .headshot {
-      width: 75px; /* Adjust size */
-      height: 75px;
-      border-radius: 50%; /* Makes it circular */
-      object-fit: cover; /* Ensures it maintains aspect ratio */
-      margin-right: 12px;
-      border: 2px solid white; /* Adds a nice border */
-    }
-
-    h1 { font-size: 1.5rem; font-weight: 700; margin: 0; }
-
-    nav { display: flex; flex-wrap: wrap; gap: .75rem; }
-    nav a {
-      color: white;
-      text-decoration: none;
-      padding: .4rem .7rem;
-      border-radius: .5rem;
-      font-size: 1rem;
-      transition: background-color .2s ease, color .2s ease;
-    }
-    nav a:hover { background-color: rgba(255,255,255,0.1); }
-
-    @media (max-width: 640px) {
-      .header-inner { flex-direction: column; align-items: center; }
-      nav { justify-content: center; }
-    }
-    main {
-      padding: 2rem;
-      flex: 1; /* Makes sure the main content area takes up the remaining space */
-    }
-    .intro {
-    background: linear-gradient(135deg, #f8f9fa, #ffffff); /* Softer gradient */
-    padding: 2.5rem; /* More space inside */
-    border-bottom: 3px solid #ccc; /* Softer border */
-    margin-bottom: 2rem;
-    text-align: center;
-    border-radius: 12px; /* Slightly rounder corners */
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-    max-width: 750px; /* Keeps content from getting too wide on large screens */
-    margin: 0 auto; /* Centers the section */
-    }
-
-    .intro h2 {
-        color: #333; /* Darker text for better contrast */
-        font-weight: 700;
-        font-size: 1.8rem;
-        margin-bottom: 1rem;
-    }
-    .intro p {
-        color: #555; /* Slightly darker for readability */
-        font-size: 1.1rem;
-        line-height: 1.6;
-    }
-    .intro ul {
-        padding-left: 20px; /* Indentation */
-        list-style-type: disc;
-        list-style-position: inside; /* Aligns bullets with text */
-    }
-    .intro ul li {
-        margin-bottom: 0.5rem;
-        font-size: 1.1rem;
-    }
-    .cards {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1rem;
-      padding: 1rem;
-    }
-
-    .card {
-      border-radius: 12px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      text-decoration: none;
-      color: #333;
-      width: 250px;
-      padding: 1.5rem;
-      text-align: center;
-      font-weight: bold;
-      transition: transform 0.2s, box-shadow 0.2s, filter 0.2s;
-    }
-
-  /* Soft Google-like hues for main cards */
-  .card:nth-child(1) { background: #E3F2FD; } /* Soft Blue */
-  .card:nth-child(2) { background: #FFEBEE; } /* Soft Red */
-  .card:nth-child(3) { background: #E8F5E9; } /* Soft Green */
-  .card:nth-child(4) { background: #FFFDE7; } /* Soft Yellow */
-
-    .card:hover {
-      transform: scale(1.05);
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-      filter: brightness(0.9);
-    }
-
-    .section-title { text-align: center; font-size: 1.6rem; margin: 2.5rem 0 0.5rem; }
-    .section-subtitle { text-align: center; color: var(--muted); margin: 0 0 1.5rem; }
-
-    /* QR Codes */
-    .qr-section { padding: 0 1rem 2.5rem; }
-    .qr-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-      gap: 1rem;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-    .qr-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      box-shadow: 0 1px 2px rgba(0,0,0,0.04);
-      padding: 1rem;
-      text-align: center;
-      transition: transform 0.2s, box-shadow 0.2s, filter 0.2s;
-    }
-    .qr-card:hover {
-      transform: scale(1.05);
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-      filter: brightness(0.98);
-    }
-    .qr-card img {
-      width: 100%;
-      height: auto;
-      aspect-ratio: 1 / 1;
-      object-fit: contain;
-      image-rendering: crisp-edges;
-    }
-    .qr-card a { display: block; border-radius: 10px; }
-    .qr-card a:focus-visible { outline: 3px solid var(--brand); outline-offset: 4px; }
-  .qr-card figcaption { margin-top: .6rem; color: var(--muted); font-weight: 600; }
-
-    footer {
-      background-color: #333;
-      color: white;
-      text-align: center;
-      padding: 1rem;
-      margin-top: auto; /* Ensures footer stays at the bottom but does not overlap content */
-    }
-  </style>  
+  
 </head>
 <body>
   <header>
     <div class="header-inner container">
       <div style="display:flex; align-items:center; gap:.75rem;">
-        <img src="/images/headshot.png" alt="James L. Elia headshot" class="headshot">
+  <img src="/images/headshot.png" alt="James L. Elia headshot" class="headshot" width="75" height="75">
         <h1>James L. Elia</h1>
       </div>
       <nav aria-label="Primary">
