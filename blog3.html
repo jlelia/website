@@ -1,0 +1,254 @@
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <!-- SEO -->
+    <meta name="description" content="Geometric proof for the area of a circle and finding the speed of light with marshmallows">
+    <meta name="keywords" content="James Elia, blog, blog3, geometry, lesson-plan">
+    <meta name="author" content="James L. Elia">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.jlelia.net/blog3">
+  
+    <!-- Site Icons -->
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Blog #3 – James L. Elia">
+    <meta property="og:description" content="Blog about a math lesson plan">
+    <meta property="og:image" content="https://www.jlelia.net/images/headshot.webp">
+    <meta property="og:url" content="https://www.jlelia.net/blog3">
+    <meta property="og:type" content="website">
+    
+    <!-- PWA / Mobile Enhancements -->
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+    
+    <title>Blog #3 - James L. Elia</title>
+    <style>
+      body { font-family: Arial, sans-serif; margin:0; padding:0; display:flex; flex-direction:column; min-height:100vh; line-height:1.6; }
+      header { background:#333; color:#fff; padding:1rem; text-align:center; }
+      nav a { color:#fff; text-decoration:none; margin:0 15px; font-size:1.1rem; }
+      main { flex:1; padding:2rem; max-width:800px; margin:0 auto; }
+      h2 { margin-top:0; }
+      footer { background:#333; color:#fff; text-align:center; padding:1rem; }
+    
+    .project-navigation {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid #ccc;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .project-navigation a {
+      text-decoration: none;
+      font-size: 1.2rem;
+      color: #007acc;
+      transition: color 0.2s ease;
+    }
+
+    .project-navigation a:hover {
+      color: #005f99;
+    }
+    .equation {
+      font-family: Menlo, Consolas, "Courier New", monospace; /* like code */
+      background: #f5f5f5;
+      padding: 0.5em 1em;
+      margin: 1em 0;
+      text-align: center;
+      border-radius: 4px;
+    }
+
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>James L. Elia</h1>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/publications">Publications</a>
+        <a href="/projects">Projects</a>
+        <a href="/blog">Blog</a>
+      </nav>
+    </header>
+  
+    <main>
+      <h2>Blog #3: The Joy of Math</h2>
+      <h3>20 July 2025</h3>
+
+      <h4>Overview</h4>
+      <p>On July 8th 2025, Meaghan and I led a workshop we designed for the 
+         <a href="https://onha.yale.edu/pathways-science" target="_blank">Yale Pathways to Science</a> summer program.
+         We guided 25 New Haven high school seniors through two interactive lessons on applied mathematics: one on
+         the area of a circle and the origins of calculus, and another on approximating the speed of light with marshmallows.
+
+      <h4>Giving credit</h4>
+      <p>While the lessons cover old ideas (one of them thousands of years old), Professor Stephen Strogatz's books <em>The Joy of X</em> 
+         and <em>Infinite Powers</em> are where I first read about them. Indeed, we titled our workshop "The Joy of Math" in his honor. You
+         can find his author website <a href="https://www.stevenstrogatz.com/" target="_blank">here</a>.
+      </p>
+      
+      <h4>Lesson #1: Geometric proof for the area of a circle</h4>
+      <p>Materials
+         <ul>
+          <li>Whiteboard and markers (not necessary but recommended)</li>
+          <li>Scissors (enough for all students, or pairs of students)</li>
+          <li>Printed out circle templates (enough for all students, or pairs of students)</li>
+          <li>Straight edges (enough for all students, or pairs of students)</li>
+          <li>Drawing utensils (enough for all students, or pairs of students)</li>
+         </ul>
+      </p>
+      <p>First, hand out scissors and pieces of paper with a circle outline printed upon them.
+         I try to have something tangible (or at least interactive) when teaching, especially for pre-college students. Handing out props
+         early helps build excitement, so we made no effort to hide the microwave and bag of marshmallows, either (more on that in Lesson #2).
+      </p>
+
+      <p>
+         Next, ask some increasingly challenging questions, allowing the students to discuss: 
+         <ul>
+          <li>What makes a circle a circle?</li>
+          <li>What is the area of a shape?</li>
+          <li>How do we find the area of a rectangle?</li>
+          <li>What properties of a circle make its area more difficult to measure?</li>
+         </ul>
+         Don't just accept textbook definitions like "length times width" for the area of a rectangle, ask them "why does that work?".
+         Most people haven't considered that multiplication of two numbers is the same as the sum of a two-dimensional array with
+         "length" rows and "width" columns. 
+      <p>Visualization also provides an easy explanation of the commutative property of multiplication (<em>a</em> x <em>b</em> = <em>b</em> x <em>a</em>).
+         5 rows of 4 columns is the same as 4 rows of 5 columns, or length and width are a matter of perspective. 
+         These lines of reasoning will prime them for creative thinking and show math is something to understand, not memorize.
+      </p>
+      <figure style="text-align: center;">
+         <img src="/images/geoDims.webp" alt="A figure showing the geometric definition of multiplication." loading="lazy">
+	       <figcaption>Multiplying <em>N</em> numbers together can be thought of as a shape of <em>N</em> dimensions with corresponding lengths.
+           If you come up with a good way to visualize a four-dimensional shape, be sure to let me know! Image source: James Elia using Canva.
+         </figcaption>
+      </figure>
+      <p>
+         Now that our brains are limber, it's time to begin the exercise! Ask the students to cut out their paper circles. Then,
+         have them divide their circles in half with a pencil and straight edge, shading in one half of the circle and leaving the
+         other blank. Next, have the students cut their circles into two symmetric halves. Ask the class: does it make it any easier
+         to measure the area? Give a bit of time for them to try a few ideas, then repeat halving.
+      </p>
+      <p>
+         Once the students get to eighths, some may start to catch on. If not, start to guide them with drawings on the whiteboard.
+         Ask them to alternate the wedges (the shading makes this easier!) like in the diagram below. It should become increasingly clear
+         that what was once their circle is now a close approximation of a rectangle. Now for the final piece of the puzzle, ask: what is the
+         length of this rectangle-like shape? What is the width? 
+      </p>
+      <figure style="text-align: center;">
+         <img src="/images/circleProof.webp" alt="A figure showing the geometric definition of the area of a circle." loading="lazy">
+	       <figcaption>By dividing our circle into smaller pieces, we can arrange the area into a rectangle of length one-half circumference (πr) 
+          and width radius (r), resulting in the known formula πr². Unknown image source, please contact me for credit.
+         </figcaption>
+      </figure>
+      <p>
+         As a final discussion, talk about how this method of finding the area for difficult shapes by breaking them into smaller and smaller
+         pieces laid the foundation for calculus. Here, I tied in my research on cancer therapeutics, where we sometimes want to know
+         the area under a curve generated in experiments, like testing which drugs are best at stopping cancer cell growth.
+      </p>
+
+      <h4>Lesson #2: Approximating the speed of light with marshmallows</h4>
+      <p>Materials
+         <ul>
+          <li>Whiteboard and markers (not necessary but recommended)</li>
+          <li>One microwave with a known frequency (usually on a label on the edge of the door)</li>
+          <li>One large bag of mini marshmallows</li>
+          <li>One ruler with centimeter markings</li>
+          <li>Paper plates (for melting marshmallows on)</li>
+         </ul>
+      </p>
+      <p>
+         While Lesson #1 can work for any age, Lesson #2 is more abstract and may be difficult for pre-high-school students.
+         Similar to Lesson #1, we open with some general discussion, building up the complexity of our questions:
+         <ul>
+          <li>What is light?</li>
+          <li>What are some examples of light?</li>
+          <li>Is all light visible?</li>
+          <li>Does light always travel at the same speed?</li>
+          <li>How does light travel?</li>
+         </ul>
+         Depending on the desired intensity, the last two bullets can lead to a foray into refraction and the Principle of Least
+         Action. At the least, I would mention how refraction is what makes objects seem in different locations when looking through
+         the surface of water. The more common experiences you can tie in, the better.
+      </p>
+      <p>
+         Next, we lay down some foundation. Describe the light spectrum, bringing in real-world examples familiar to the students
+         like visible light, ultra-violet light, X-rays, radiowaves, and microwaves! I would recommend labeling the light spectrum
+         on the board as you give examples, discussing how smaller wavelengths have more energy.
+      </p>
+      <figure style="text-align: center;">
+         <img src="/images/lightSpec.webp" alt="A figure showing the light spectrum with labels." loading="lazy">
+	       <figcaption>Students may be surprised to find that the properties of light change so greatly with wavelength.
+          Try to generate as many "aha!" moments as you can (rainbows, sunburns, medical imaging). Image source: <a href="https://www.khanacademy.org/science/biology/photosynthesis-in-plants/the-light-dependent-reactions-of-photosynthesis/a/light-and-photosynthetic-pigments" target="_blank">Khan Academy</a>.
+         </figcaption>
+      </figure>
+      <p>
+         Now that the students understand that light is a wave, let's break down the properties of waves. It's important to
+         note that the speed of light is constant (within a given medium), so we have:
+      </p>
+      <div class="equation">
+         <em>c</em> = λ * <em>f</em>
+      </div>
+      <p>
+         where <em>c</em> is the speed of light in meters/second, λ is the wavelength in meters, and <em>f</em> is frequency
+         in Hertz (second<sup>-1</sup>). I recommend <em>f</em> as opposed to <em>v</em> for frequency to avoid any confusion with velocity, which has 
+         the same unit as <em>c</em>. Since the speed of light is constant, frequency and wavelength must be inversely proportional!
+      </p>
+      <p>
+         This relationship may seem odd to the students at first, but we can use a runner's stride as an analogy: if two runners
+         are moving at the same speed, and runner #1 has a longer stride (wavelength), runner #2 must have a quicker cadence (frequency).
+      </p>
+      <figure style="text-align: center;">
+         <img src="/images/waveProperties.webp" alt="A figure labeling the basic properties of a wave." loading="lazy">
+	       <figcaption>Some of the basic properties of waves. Make sure to cover anti-nodes versus nodes since this will be key
+          to the demonstration. Image source: James Elia using Canva.
+         </figcaption>
+      </figure>
+      <p>
+         As a final piece of background, discuss how the energy transfer of a wave is proportional to the square of the electric field.
+         Then ask the students, where would we expect a microwave to create the most heat? At the nodes, at the anti-nodes? Does the sign
+         of the amplitude matter?
+      </p>
+      <p>
+         Time to bring it all home! Remove the turntable from the microwave and place a paper plate with a uniform layer of mini 
+         marshmallows. Microwave the plate for about 10 seconds, then quickly remove it. There will be alternating bands of melted
+         and unmelted marshmallows, representing anti-nodes and nodes, respectively. Walk around and show the students!
+      </p>
+      <p>
+         Next, measure the distance between the center of the melted bands (anti-nodes) using a ruler in centimeters. We will need
+         to convert to meters, which is also a nice lesson for the students. I measured 6 cm, or 0.06 meters. Remember, this is
+         one-half of our wavelength, so double it to get the wavelength (0.12 meters).
+      </p>
+      <p>
+         The wavelength (λ) is 0.12 meters. The frequency(<em>f</em>) of the microwave is 2450 MHz, or 2,450,000,000 Hz. Thus, our equation is:
+      </p>
+      <div class="equation">
+         <em>c</em> = (0.12 meters) * (2,450,000,000 Hz) = 294,000,000 m/s
+      </div>
+      <p>
+        The measured speed of light is 299,792,458 m/s, so our experiment gives a result within about 2% of the true value. 
+        Not bad for marshmallows and a microwave!
+      </p>
+      <p>James</p>
+      <div class="project-navigation">
+        <a class="nav-left" href="blog2.html">← Blog 2</a>
+        <a class="nav-right" href="blog.html">Blog →</a>
+      </div>
+
+    </main>  
+
+    <footer>
+      <p>© 2025 James L. Elia</p>
+    </footer>
+  
+
+</body></html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <!-- SEO -->
+    <meta name="description" content="[Brief project description here]">
+    <meta name="keywords" content="James Elia, project, project1, raspberry-pi, self-hosting, web-development">
+    <meta name="author" content="James L. Elia">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.jlelia.net/project1">
+  
+    <!-- Site Icons -->
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Project #1 – James L. Elia">
+    <meta property="og:description" content="Description of personal website project">
+    <meta property="og:image" content="https://www.jlelia.net/images/pi5.webp">
+    <meta property="og:url" content="https://www.jlelia.net/project1">
+    <meta property="og:type" content="website">
+    
+    <!-- PWA / Mobile Enhancements -->
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+    
+    <title>Project #1 - James L. Elia</title>
+    <style>
+      /* Inherit your main-site CSS or keep this inline */
+      body { font-family: Arial, sans-serif; margin:0; padding:0; display:flex; flex-direction:column; min-height:100vh; line-height: 1.6; }
+      header { background:#333; color:#fff; padding:1rem; text-align:center; }
+      nav a { color:#fff; text-decoration:none; margin:0 15px; font-size:1.1rem; }
+      main { flex:1; padding:2rem; max-width:800px; margin:0 auto; }
+      h2 { margin-top:0; }
+      footer { background:#333; color:#fff; text-align:center; padding:1rem; }
+
+      .project-navigation {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 40px;
+        padding-top: 20px;
+        border-top: 1px solid #ccc;
+      }
+
+      .project-navigation a {
+        text-decoration: none;
+        font-size: 1.2rem;
+        color: #007acc;
+        transition: color 0.2s ease;
+      }
+
+      .project-navigation a:hover {
+        color: #005f99;
+      }
+
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>James L. Elia</h1>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/publications">Publications</a>
+        <a href="/projects">Projects</a>
+        <a href="/blog">Blog</a>
+      </nav>
+    </header>
+  
+    <main>
+      <h2>Project #1: Web Development</h2>
+      <p>This website is one of my first programming projects. I am hosting the site on a Raspberry Pi 5, a computer smaller
+	 than a cellphone that runs 24/7 in my home and receives web traffic (like you, dear visitor) through my router. The
+	 entire setup cost about $100, and it already paid for itself considering the subscription fee I'd pay a company to host
+	 my website.</p> 
+      <p>My two major goals in this project are to become "fluent" in the Unix command line and to gain experience with every step 
+         of web development. To facilitate this, I do everything through the command line, despite the Pi 5 having plenty of power
+         for a smooth GUI. I use uncomplicated firewall (UFW) and fail2ban to help protect my home network, along with some other
+	 nifty security tricks I won't disclose to keep visitors safe.</p>
+      <p>On the software side, I am using Nginx, a popular, lightweight web server that's perfect for serving
+	 static content, like text and images. I wrote the pages myself in HTML and CSS. Although I have a decent amount of experience
+         with HTML via a newsletter I'd write for Nucleate, I often use GPT-4 for boilerplate styling and SEO.</p>
+      <p>While calling this full-stack web development is technically true, it is also tongue-in-cheek. I know hosting and coding a
+	 static website is a far cry from being a web developer. I've yet to seriously work with JavaScript, React, SQL, et cetera,
+	 but I've loved the experience and accomplished my two goals: I am much more comfortable with the Unix-based command line
+	 and the core concepts of hosting a website. It's an added bonus that when I finally looked up from the terminal, I had a
+	 decent website looking back at me.</p>
+      <img src="/images/pi5.webp" alt="A small motherboard" style="max-width:100%;border-radius:8px;margin-top:1rem;"> 
+      <div class="project-navigation">
+        <a class="nav-left" href="projects.html">← Projects</a>
+        <a class="nav-right" href="project2.html">Project 2 →</a>
+      </div>
+
+    </main>  
+
+    <footer>
+      <p>&copy; 2025 James L. Elia</p>
+    </footer>
+  </body>
+</html>

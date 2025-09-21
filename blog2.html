@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <!-- SEO -->
+    <meta name="description" content="A blog about a biologist's razor">
+    <meta name="keywords" content="James Elia, blog, blog2, elia-razor, biology, logic">
+    <meta name="author" content="James L. Elia">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.jlelia.net/blog2">
+  
+    <!-- Site Icons -->
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Blog #2 – James L. Elia">
+    <meta property="og:description" content="Description of personal journey">
+    <meta property="og:image" content="https://www.jlelia.net/images/headshot.webp">
+    <meta property="og:url" content="https://www.jlelia.net/blog2">
+    <meta property="og:type" content="website">
+    
+    <!-- PWA / Mobile Enhancements -->
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+    
+    <title>Blog #2 - James L. Elia</title>
+    <style>
+      body { font-family: Arial, sans-serif; margin:0; padding:0; display:flex; flex-direction:column; min-height:100vh; line-height: 1.6; }
+      header { background:#333; color:#fff; padding:1rem; text-align:center; }
+      nav a { color:#fff; text-decoration:none; margin:0 15px; font-size:1.1rem; }
+      main { flex:1; padding:2rem; max-width:800px; margin:0 auto; }
+      h2 { margin-top:0; }
+      footer { background:#333; color:#fff; text-align:center; padding:1rem; }
+    
+    .project-navigation {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid #ccc;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .project-navigation a {
+      text-decoration: none;
+      font-size: 1.2rem;
+      color: #007acc;
+      transition: color 0.2s ease;
+    }
+
+    .project-navigation a:hover {
+      color: #005f99;
+    }
+
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>James L. Elia</h1>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/publications">Publications</a>
+        <a href="/projects">Projects</a>
+        <a href="/blog">Blog</a>
+      </nav>
+    </header>
+  
+    <main>
+      <h2>Blog #2: Elia's Razor</h2>
+      <h3>22 June 2025</h3>
+
+      <h4>Defining a Razor</h4>
+      <p>In philosophy, thinkers propose (or are attributed) "razors" which can "shave off" unnecessary time and effort when used well. One of my favorites is 
+      <a href='https://en.wikipedia.org/wiki/Hanlon%27s_razor' target=_blank>Hanlon's razor</a>:</p>
+      <p><em>Never attribute to malice that which is adequately explained by stupidity.</em></p>
+      <p>Another (more widely known) favorite is <a href='https://en.wikipedia.org/wiki/Occam%27s_razor' target=_blank>Occam's razor</a>:</p> 
+      <p><em>Entities must not be multiplied beyond necessity.</em></p> 
+      <p>or put more simply:</p> 
+      <p><em>If solutions seem equally valid, prefer the simplest one.</em></p>
+      <h4>Proposing a Razor</h4>
+      <p>In honor of these excellent quips of wit (and as a product of countless headaches in the lab), I propose Elia's razor:</p>
+      <p><em>Never attribute to biology what can be explained by technical artifact.</em></p>
+      <p>or more generally:</p>
+      <p><strong><em>Never invoke system-intrinsic properties when system-extrinsic factors suffice.</em></strong></p>
+      <p>What does it mean? Let's say you found something very surprising. Before you take it at face value and come up with crazy ideas justifying the result, step back
+      and ask: could the result be caused by an incidental <strong>outside</strong> feature (information bias, human error, programming bug)? Until this is ruled out
+      beyond a reasonable doubt, do not consider something <strong>inside</strong> your system of study (cell, atom, ecosystem) as the cause.</p>
+      <p>This idea is far from original. It's something every scientist learns eventually, a sixth sense that makes us suspicious of any singular result. However,
+      I've yet to see the idea presented as a one-liner, so I hope this is a small contribution to metascience. Further, sticking my name on something helps me cope
+      with my inevitable demise. If something nearly identical has been said before, please let me know so I can properly cite it!</p>
+      <h4>Personal Anecdote</h4>
+      <p>Now it's time for a true story that inspired this post. As a PhD candidate at Yale in the Pathology and Molecular Medicine program, I often train undergraduates,
+      junior grad students, and new postdocs in lab techniques. One of these trainees told me they were highly trained in flow cytometry and wanted to conduct experiments
+      that utilized the technique. <a href='https://en.wikipedia.org/wiki/Flow_cytometry' target=_blank>Flow cytometry</a> uses lasers to distinguish cells from one 
+      another. One can use specific tags that fluoresce under certain lasers to ask very specific biological questions.</p> 
+      <p>We designed an experiment to see whether a drug that staples the two strands of DNA together (preventing replication of the DNA) was uniquely toxic to cancer
+      cells with a specific mutation in a DNA repair pathway. We would measure cell death in two ways: propidium iodide (PI, which stains DNA but can only enter cells with
+      ruined membranes) and a fluorescent-tagged Annexin V (which sticks to a specific kind of fat that is only in the outer membrane during apoptosis AKA programmed cell
+      death).
+      A lovely <a href='https://www.biorender.com/template/annexin-v-af488-apoptosis-assay' target=_blank>Biorender figure</a> made by Rachid Boutoual is shown below:</p>
+      
+      <figure style="text-align: center;">
+        <img src="/images/annexinV.webp"
+             alt="A figure showing PI and Annexin V staining."
+	     loading="lazy">
+	<figcaption>Annexin V sticks to a marker of apoptosis, FITC is a fluorescent tag on Annexin V, and PI (propidium iodide) stains DNA but cannot penetrate
+    		    intact cell membranes.</figcaption>
+      </figure>
+      <p>Wanting an independent sub-project, the trainee took the lead and conducted the experiments. We knew the drug was very toxic to this type of cell, and we 
+      knew this type of cell death typically occurs through apoptosis, so we fully expected to see a strong apoptosis (Annexin V) signal.</p> 
+      <p>At the 24-hour timepoint, they saw a concentration-dependent increase in PI with the drug, but no increase in Annexin V signal. However, the postive control, a drug known to cause strong induction
+      of apoptosis, did not show Annexin V signal either. It is at this point Elia's razor should've been invoked.</p>
+      <p>Instead, the trainee continued the experiment. They came to me after the second timepoint explaining how the drug of interest
+      amazingly cricumvents apoptosis altogether and immediately causes necrosis, hence the high PI and low Annexin V signal. They ran through several intriguing cell bio
+      theories on what may be happening and felt certain that we'd uncovered something truly novel.</p> 
+      <p>After inquiring about the positive control, and hearing that it too skipped apoptosis, my suspicions were piqued. I went with them to the flow 
+      cytometer for the third timepoint. As expected from their expertise, everything went smoothly.</p> 
+      <p>But I noticed they kept referring to Annexin V as "APC", a type of fluorophore. 
+      "Why do you keep saying APC?", I asked. "It's just Annexin V, it's the same thing", they replied.</p>
+      <p>Turns out their prior lab always used an APC-tagged Annexin V, meaning the fluorescent tag APC on the protein Annexin V. They assumed APC was just synonymous with
+      Annexin V, so of course they chose the APC option on the flow cytometer. We had a different fluorescent tag for our Annexin V kit, in a completely separate part of 
+      the light spectrum.</p> 
+      <p>In other words, they painted apoptotic cells blue and told the machine that red cells were the apoptotic ones. When no red cells were detected? Eureka! 
+      A DNA-damaging agent that circumvents apoptosis entirely.</p>
+      <h4>Key Takeaways</h4>
+      <p>I don't write about this story to mock the trainee. Every scientist makes mistakes; I've made too many to count. I tell the story to highlight a few key lessons
+      that can make the life of a scientist much easier:</p>
+      <ul>
+        <li>Words are important. Definitions are important. Synonyms in one context are not necessarily synonyms in others. Be precise with your language, internally and
+        externally.</li>
+        <li>Familiarize yourself with the <em>purpose</em> of your methods. Don't think just input and output, think function. What does each step and each reagent of the
+        protocol actually do?<ul><li>Bonus: desinging your own assays becomes much easier when you understand what's physically happening. You start to assemble steps in
+        novel ways and create new methods.</li></ul></li>
+        <li>And, of course, <strong><em>never invoke system-intrinsic properties when system-extrinsic factors suffice.</em></strong></li>
+      </ul>
+      <p>James</p>
+      <div class="project-navigation">
+        <a class="nav-left" href="blog1.html">← Blog 1</a>
+        <a class="nav-right" href="blog3.html">Blog 3 →</a>
+      </div>
+
+    </main>  
+
+    <footer>
+      <p>&copy; 2025 James L. Elia</p>
+    </footer>
+  </body>
+</html>

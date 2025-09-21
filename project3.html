@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <!-- SEO -->
+    <meta name="description" content="Overview of an AI coding project">
+    <meta name="keywords" content="James Elia, project, project3, generative-AI, AI, python, stable-diffusion, evolution">
+    <meta name="author" content="James L. Elia">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.jlelia.net/project3">
+  
+    <!-- Site Icons -->
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Project #3 – James L. Elia">
+    <meta property="og:description" content="Description of personal website project">
+    <meta property="og:image" content="https://www.jlelia.net/images/initialSet.webp">
+    <meta property="og:url" content="https://www.jlelia.net/project3">
+    <meta property="og:type" content="website">
+    
+    <!-- PWA / Mobile Enhancements -->
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+    
+    <title>Project #3 - James L. Elia</title>
+    <style>
+      body { font-family: Arial, sans-serif; margin:0; padding:0; display:flex; flex-direction:column; min-height:100vh; line-height: 1.6; }
+      header { background:#333; color:#fff; padding:1rem; text-align:center; }
+      nav a { color:#fff; text-decoration:none; margin:0 15px; font-size:1.1rem; }
+      main { flex:1; padding:2rem; max-width:800px; margin:0 auto; }
+      h2 { margin-top:0; }
+      footer { background:#333; color:#fff; text-align:center; padding:1rem; }
+
+      .project-navigation {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 40px;
+        padding-top: 20px;
+        border-top: 1px solid #ccc;
+      }
+
+      .project-navigation a {
+        text-decoration: none;
+        font-size: 1.2rem;
+        color: #007acc;
+        transition: color 0.2s ease;
+      }
+
+      .project-navigation a:hover {
+        color: #005f99;
+      }
+
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>James L. Elia</h1>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/publications">Publications</a>
+        <a href="/projects">Projects</a>
+        <a href="/blog">Blog</a>
+      </nav>
+    </header>
+  
+    <main>
+      <h2>Project #3: Aesthetic Selection</h2>
+      <p>I presented an interactive exhibit at the 2025 Envisioning AI at Yale Symposium titled "Aesthetic Selection: Applying Evolutionary 
+	 Principles to AI Image Generation".</p> 
+      <p>I wrote a Python script that used Stable Diffusion XL to generate three variations on three text prompts (e.g. beach at sunset,
+	 scenic mountain vista, futuristic city at night). Then, symposium attendees voted for their favorite within each group using a keyboard. Once an image reached a 
+	 vote threshold, it was used as an input for img2img Stable Diffusion XL to create three more variations, and the cycle continues.</p>
+      <p>I had two main goals with this project: to learn more about building Python scripts that use generative AI and to learn how to integrate high-performance
+	 computing clusters with my pipelines. My friend and colleague, Sam Friedman, showed me the ropes for running interactive scripts on Yale's McCleary cluster,
+	 including a neat X forwarding trick that is the bane of cluster admins everywhere (don't worry, we had permission!).</p>
+      <p>This project taught me so much about building AI pipelines, version control (dependency hell?), and high-performance computing. Beyond the tech insights, 
+	 I hope my biologist perspective gave attendees some new ideas on how stochastic image generation allows for the application of selection pressure towards 
+	 some specified goal. Here are a few discussion questions I included in my exhibit:</p>
+      <p>How is this similar to evolution? What are the mutations? What is the selection pressure?</p>
+      <p>How might stochastic methods of creating art change the field?</p>
+      <p>What does the democratization of art mean for artists?</p>
+      <img src="/images/overviewPic.webp" alt="Three sets of three AI generated images" style="max-width:100%;border-radius:8px;margin-top:1rem;">
+      <div class="project-navigation">
+        <a class="nav-left" href="project2.html">← Project 2</a>
+        <a class="nav-right" href="projects.html">Projects →</a>
+      </div> 
+    </main>
+  
+    <footer>
+      <p>&copy; 2025 James L. Elia</p>
+    </footer>
+  </body>
+</html>
