@@ -1,0 +1,42 @@
+name: Deploy to Pi (self-hosted)
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: [self-hosted, linux]    # ensure this matches the runner labels shown in GitHub
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Show deploy info
+        run: |
+          echo "Running on $(uname -a)"
+          echo "Working dir: $GITHUB_WORKSPACE"
+
+      # create a timestamped backup of current webroot
+      - name: Backup current webroot (optional)
+        run: |
+          TIMESTAMP=$(date +'%Y%m%d-%H%M%S')
+          sudo mkdir -p /var/backups/site || true
+          sudo rsync -a --delete /var/www/html/ /var/backups/site/html-${TIMESTAMP}/ || true
+
+      - name: Rsync to webroot
+        run: |
+          # --delete removes files on the server that are not in the repo
+          sudo rsync -av --delete --exclude='.git' "$GITHUB_WORKSPACE"/ /var/www/html/
+
+      - name: Fix ownership & permissions
+        run: |
+          sudo chown -R www-data:www-data /var/www/html || true
+          sudo find /var/www/html -type d -exec chmod 2755 {} \; || true
+          sudo find /var/www/html -type f -exec chmod 0644 {} \; || true
+
+      - name: Reload webserver (adjust to your server)
+        run: |
+          sudo systemctl reload nginx || true
