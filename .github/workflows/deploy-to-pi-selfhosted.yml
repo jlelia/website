@@ -7,7 +7,7 @@ on:
 
 jobs:
   deploy:
-    runs-on: [self-hosted, linux]    # ensure this matches the runner labels shown in GitHub
+    runs-on: [self-hosted, linux]
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
