@@ -6,3 +6,5 @@ This repo contains all of the front-end code present on my website. I self-host 
 All of the content on the site is static. I use HTML with a unified [CSS style sheet](styles.css) to avoid in-line CSS and to follow DRY principles.
 
 I used to write the code through SSH CLI as a practice exercise in bash, but now I use GitHub Actions to automate updates whenever I push to this repo via a [runner workflow](.github\workflows\deploy-to-pi-selfhosted.yml).
+
+I try to follow good security practices, so if you find anything that could be exploited (against my server or my visitors), please let me know!
