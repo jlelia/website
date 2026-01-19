@@ -94,11 +94,16 @@
         <li><strong>Backend (Compute):</strong> A Python script utilizing <code>accelerate</code> and <code>xformers</code> handles heavy tensor operations and memory-efficient attention on A100 GPU nodes.</li>
         <li><strong>Frontend (Visualization):</strong> A lightweight viewer script utilizes <strong>X11 forwarding</strong> to project the generated gallery from the headless cluster directly to the local displays via SSH, allowing for real-time audience feedback loops.</li>
       </ul>
+      <p>
+        One of the biggest challenges was building a stable environment with the shifting sands of AI workflows paired with the rigidity of the cluster.
+        At least the baptism of fire from dependency hell made me a stronger programmer!
+      </p>
 
       <figure style="text-align: center;">
          <img src="/images/overviewPic.webp" alt="Three sets of three AI generated images showing evolutionary progression" class="content-image" loading="lazy">
          <figcaption>
            <strong>The Evolutionary Loop:</strong> Three iterations of three prompts compete. Images selected by the audience become the input for the next generation, creating a directed evolutionary path through the model's latent space.
+           Winners outlined with green.
          </figcaption>
       </figure>
 
