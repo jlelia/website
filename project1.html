@@ -63,10 +63,10 @@
 
       <p>
         <strong>Objective</strong>: Architect a full-stack web presence from first principles, bypassing managed hosting services 
-        to maintain complete control over the infrastructure and deployment pipeline.
+        to learn more about web infrastructure and deployment.
       </p>
 
-      <h3>Infrastructure & Architecture</h3>
+      <h3>Infrastructure and Architecture</h3>
       <p>
         Rather than relying on abstracted cloud hosting, I serve this site from a <strong>Raspberry Pi 5</strong> running in 
         my home network. This "bare-metal" approach requires managing the OS layer directly. I interact with the server exclusively 
@@ -89,7 +89,7 @@
         This eliminates manual file transfers (SCP) and ensures the live site always reflects the `main` branch state. This was also good practice for Python packaging workflows (<a href="/project2">Project 2</a>).
       </p>
 
-      <h3>Security & Networking</h3>
+      <h3>Security and Networking</h3>
       <p>
         Exposing a local machine to the open web requires security hardening. I utilize <strong>Nginx</strong> as a high-performance reverse proxy and secure the network using <strong>UFW</strong> (Uncomplicated Firewall) 
         and <strong>Fail2Ban</strong> to automatically mitigate intrusion attempts. I also ban IPs with suspicious behavior, which is easy to audit with <strong>GoAccess</strong>, a real-time log analysis tool.
