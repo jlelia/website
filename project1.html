@@ -1,101 +1,55 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- SEO -->
-    <meta name="description" content="Self-hosted personal website on Raspberry Pi 5">
-    <meta name="keywords" content="James Elia, project, project1, raspberry-pi, self-hosting, web-development">
-    <meta name="author" content="James L. Elia">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://www.jlelia.net/project1">
-
-    <!-- Site Icons -->
-    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
-    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
-
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Project #1 – James L. Elia">
-    <meta property="og:description" content="Building and hosting a personal site on a Raspberry Pi 5.">
-    <meta property="og:image" content="https://www.jlelia.net/images/pi5.webp">
-    <meta property="og:url" content="https://www.jlelia.net/project1">
-    <meta property="og:type" content="website">
-
-    <!-- PWA / Mobile Enhancements -->
-    <link rel="manifest" href="/site.webmanifest">
-    <meta name="theme-color" content="#ffffff">
-
-  <!-- Performance Optimizations -->
-  <link rel="preload" as="image" href="/images/headshot.webp" imagesrcset="/images/headshot.webp 1x" fetchpriority="high">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/styles.css">
-
-  <title>Project #1 - James L. Elia</title>
-  </head>
-  <body>
-    <header>
-      <div class="header-inner container">
-  <div class="brand-group">
-          <img src="/images/headshot.webp" alt="James L. Elia headshot" class="headshot" width="75" height="75">
-          <h1>James L. Elia</h1>
-        </div>
-        <nav aria-label="Primary">
-          <a href="/">Home</a>
-          <a href="/about">About</a>
-          <a href="/publications">Publications</a>
-          <a href="/projects">Projects</a>
-          <a href="/blog">Blog</a>
-        </nav>
+<main>
+      <h2>Project #1: Bare-Metal Self-Hosting with CI/CD</h2>
+      <h3><a href="https://github.com/jlelia/website" target="_blank" rel="noopener noreferrer">GitHub Repo</a></h3>
+      
+      <div class="tech-stack">
+        <p><strong>Stack:</strong> Raspberry Pi 5 • Nginx • Bash • GitHub Actions (CI/CD) • HTML5/CSS3</p>
       </div>
-    </header>
-  
-    <main>
-      <h2>Project #1: Web Development</h2>
-      <h3><a href="https://github.com/jlelia/website" target="_blank" rel="noopener noreferrer">Website GitHub</a></h3>
+
       <p>
-        <strong>Practical Objective</strong>: create an online resume and blog
+        <strong>Objective</strong>: Architect a full-stack web presence from first principles, bypassing managed hosting services 
+        to maintain complete control over the infrastructure and deployment pipeline.
+      </p>
+
+      <h3>Infrastructure & Architecture</h3>
+      <p>
+        Rather than relying on abstracted cloud hosting, I serve this site from a <strong>Raspberry Pi 5</strong> running in 
+        my home network. This "bare-metal" approach requires managing the OS layer directly. I interact with the server exclusively 
+        via SSH (headless), enforcing a command-line-first workflow that mirrors the environment of high-performance computing clusters used in my research.
+      </p> 
+      
+      <h3>Automated Deployment (CI/CD)</h3>
+      <p>
+        To ensure code reproducibility and streamline updates, I engineered a <strong>Continuous Deployment</strong> pipeline. I configured a self-hosted GitHub Actions runner directly on the Pi. 
       </p>
       <p>
-        <strong>Learning Objective</strong>: build proficiency with the command line and basic web development
+        Now, when I push changes to the repository, the runner automatically:
       </p>
-      <p>This website is one of my first programming projects. I am hosting the site on a Raspberry Pi 5, a computer smaller
-	      than a cellphone that runs 24/7 in my home and receives web traffic (like you, dear visitor) through my router. The
-	      entire setup cost about $100, and it already paid for itself considering the subscription fee I'd pay a company to host
-	      my website.</p> 
-      <p>My two major goals in this project are to become "fluent" in the Unix command line and to gain experience with every step 
-        of web development. To facilitate this, I do everything through the command line, despite the Pi 5 having plenty of power
-        for a smooth GUI. I use uncomplicated firewall (UFW) and fail2ban to help protect my home network, along with some other
-	      nifty security tricks I won't disclose to keep visitors safe.</p>
-      <p>On the software side, I am using Nginx, a popular, lightweight web server that's perfect for serving
-	      static content, like text and images. I wrote the pages myself in HTML and CSS. Although I have a decent amount of experience
-        with HTML via a newsletter I'd write for Nucleate, I often use GPT-4 for boilerplate styling and SEO.</p>
-      <p>I also use a runner workflow on GitHub Actions to automatically update server-side on every push. This avoids a lot of headaches
-        from my early days using SCP constantly or writing entire HTML pages in Nano; my space bar is certainly grateful...
+      <ul>
+          <li>Pulls the latest commit</li>
+          <li>Builds the static assets</li>
+          <li>Deploys them to the Nginx serving directory</li>
+      </ul>
+      <p>
+        This eliminates manual file transfers (SCP) and ensures the live site always reflects the `main` branch state. This was also good practice for Python packaging workflows (<a href="/project2">Project 2</a>).
       </p>
-      <p>While calling this full-stack web development is technically true, it is also tongue-in-cheek. I know hosting and coding a
-	      static website is a far cry from being a web developer. I've yet to seriously work with JavaScript, React, SQL, et cetera,
-	      but I've loved the experience and accomplished my two goals: I am much more comfortable with the Unix-based command line
-	      and the core concepts of hosting a website. It's an added bonus that when I finally looked up from the terminal, I had a
-	      decent website looking back at me.</p>
+
+      <h3>Security & Networking</h3>
+      <p>
+        Exposing a local machine to the open web requires security hardening. I utilize <strong>Nginx</strong> as a high-performance reverse proxy and secure the network using <strong>UFW</strong> (Uncomplicated Firewall) 
+        and <strong>Fail2Ban</strong> to automatically mitigate intrusion attempts. I also ban IPs with suspicious behavior, which is easy to audit with <strong>GoAccess</strong>, a real-time log analysis tool.
+      </p>
+
       <figure style="text-align: center;">
-         <img src="/images/pi5.webp" alt="The Raspberry Pi 5 mini computer." loading="lazy">
-	       <figcaption>
-            A Raspberry Pi 5, the miniature computer I use as a server to host this website.
+         <img src="/images/pi5.webp" alt="The Raspberry Pi 5 server setup" loading="lazy">
+         <figcaption>
+            A Raspberry Pi 5, the mini computer I use to handle all traffic for jlelia.net.
          </figcaption>
       </figure>
+
       <div class="project-navigation">
         <a class="nav-left" href="/projects">← Project Hub</a>
         <a class="nav-right" href="/project2">Project #2 →</a>
       </div>
 
-    </main>  
-
-    <footer>
-      <p>&copy; 2026 James L. Elia</p>
-    </footer>
-  </body>
-</html>
+    </main>
