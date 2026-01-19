@@ -53,28 +53,59 @@
       </div>
     </header>
   
-    <main>
-      <h2>Project #3: Aesthetic Selection</h2>
-      <h3><a href="https://github.com/jlelia/aesthetic_selection" target="_blank" rel="noopener noreferrer">Aesthetic Selection GitHub</a></h3>
-      <p>I presented an interactive exhibit at the 2025 Envisioning AI at Yale Symposium titled "Aesthetic Selection: Applying Evolutionary 
-	 Principles to AI Image Generation".</p> 
-      <p>I wrote a Python script that used Stable Diffusion XL to generate three variations on three text prompts (e.g. beach at sunset,
-	 scenic mountain vista, futuristic city at night). Then, symposium attendees voted for their favorite within each group using a keyboard. Once an image reached a 
-	 vote threshold, it was used as an input for img2img Stable Diffusion XL to create three more variations, and the cycle continues.</p>
-      <p>I had two main goals with this project: to learn more about building Python scripts that use generative AI and to learn how to integrate high-performance
-	 computing clusters with my pipelines. My friend and colleague, Sam Friedman, showed me the ropes for running interactive scripts on Yale's McCleary cluster,
-	 including a neat X forwarding trick that is the bane of cluster admins everywhere (don't worry, we had permission!).</p>
-      <p>This project taught me so much about building AI pipelines, version control (dependency hell?), and high-performance computing. Beyond the tech insights, 
-	 I hope my biologist perspective gave attendees some new ideas on how stochastic image generation allows for the application of selection pressure towards 
-	 some specified goal. Here are a few discussion questions I included in my exhibit:</p>
-      <p>How is this similar to evolution? What are the mutations? What is the selection pressure?</p>
-      <p>How might stochastic methods of creating art change the field?</p>
-      <p>What does the democratization of art mean for artists?</p>
-  <img src="/images/overviewPic.webp" alt="Three sets of three AI generated images" class="content-image" loading="lazy">
+<main>
+      <h2>Project #3: Aesthetic Selection - Evolutionary AI on HPC</h2>
+      <h3><a href="https://github.com/jlelia/aesthetic_selection" target="_blank" rel="noopener noreferrer">GitHub Repo</a></h3>
+
+      <div class="tech-stack">
+        <p><strong>Stack:</strong> Python • PyTorch • Diffusers (SDXL) • Hugging Face Accelerate • HPC (Slurm) • X11 Forwarding</p>
+      </div>
+
+      <p>
+        <strong>Objective</strong>: Demonstrate capability in deploying interactive, generative AI workflows on high-performance computing clusters by simulating biological evolution via "human-in-the-loop" selection.
+      </p>
+      <p>
+        Presented at the 2025 Envisioning AI at Yale Symposium.
+      </p>
+
+      <h3>Generative AI as an Evolutionary System</h3>
+      <p>
+        To bridge the gap between machine learning and biology, I designed this pipeline to treat the latent space of a diffusion model as an evolutionary landscape. 
+        The workflow rigorously maps biological first principles to computational parameters:
+      </p>
+      <ul>
+          <li><strong>Genotype and Inheritance:</strong> The seed image acts as the genetic code. We use <code>img2img</code> generation to pass phenotypic traits to the next generation.</li>
+          <li><strong>Mutation Rate:</strong> The denoising strength and guidance scale function as stochastic mutation. Too low and the species stagnates; too high and lineage is lost.</li>
+          <li><strong>Selection Pressure:</strong> Symposium attendees acted as the environment. Using a custom voting interface, they applied selective pressure, determining which phenotypes survived to reproduce.</li>
+      </ul>
+      <p>
+        We repeat this core loop, iteratively voting to create increasingly aesthetic images.
+      </p>
+
+      <h3>HPC Architecture and Headless Interaction</h3>
+      <p>
+        Running Stable Diffusion XL in near real-time requires VRAM-rich compute that exceeds standard local capabilities. I deployed this workflow on Yale’s 
+        <strong>McCleary High-Performance Computing cluster</strong>, which presented unique engineering challenges regarding resource allocation and interactive visualization in a headless environment.
+      </p>
+      <p>
+        To solve this, I engineered a <strong>decoupled architecture</strong> with help from Sam Friedman at Yale's Center for Research Computer:
+      </p>
+      <ul>
+        <li><strong>Backend (Compute):</strong> A Python script utilizing <code>accelerate</code> and <code>xformers</code> handles heavy tensor operations and memory-efficient attention on A100 GPU nodes.</li>
+        <li><strong>Frontend (Visualization):</strong> A lightweight viewer script utilizes <strong>X11 forwarding</strong> to project the generated gallery from the headless cluster directly to the local displays via SSH, allowing for real-time audience feedback loops.</li>
+      </ul>
+
+      <figure style="text-align: center;">
+         <img src="/images/overviewPic.webp" alt="Three sets of three AI generated images showing evolutionary progression" class="content-image" loading="lazy">
+         <figcaption>
+           <strong>The Evolutionary Loop:</strong> Three iterations of three prompts compete. Images selected by the audience become the input for the next generation, creating a directed evolutionary path through the model's latent space.
+         </figcaption>
+      </figure>
+
       <div class="project-navigation">
         <a class="nav-left" href="/project2">← Project #2</a>
         <a class="nav-right" href="/projects">Project Hub →</a>
-      </div> 
+      </div>
     </main>
   
     <footer>
