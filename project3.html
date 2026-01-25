@@ -58,45 +58,51 @@
       <h3><a href="https://github.com/jlelia/aesthetic_selection" target="_blank" rel="noopener">GitHub Repo</a></h3>
 
       <div class="tech-stack">
-        <p><strong>Stack:</strong> Python 3 • Matplotlib • PyTorch • Diffusers (SDXL) • Hugging Face Accelerate • HPC (Slurm) • X11 Forwarding</p>
+        <p><strong>Stack:</strong> HPC (Slurm) | Python 3 | PyTorch | Diffusers (SDXL) | Matplotlib | X11 Forwarding</p>
       </div>
 
       <p>
-        <strong>Objective</strong>: Demonstrate capability in deploying interactive, generative AI workflows on high-performance computing clusters by simulating biological evolution via "human-in-the-loop" selection.
-      </p>
-      <p>
-        Presented at the 2025 Envisioning AI at Yale Symposium.
+        <strong>Practical Objective</strong>: Create an interactive workshop for the 2025 Envisioning AI at Yale Symposium applying evolutionary principles to AI image generation.
+        <strong>Learning Objective</strong>: Build fluency with high-performance computing and deployment of pre-built generative AI models.
       </p>
 
       <h3>Generative AI as an Evolutionary System</h3>
       <p>
-        To bridge the gap between machine learning and biology, I designed this pipeline to treat the latent space of a diffusion model as an evolutionary landscape. 
-        The workflow rigorously maps biological first principles to computational parameters:
+        To bridge the gap between machine learning and biology, I designed this pipeline to treat the latent space of a diffusion model as an evolutionary landscape.
+        The core loop of the exhibit:
+      </p>
+      <ul>
+          <li><strong>txt2img:</strong> I feed in three prompts and generate three images each (nine total), displayed on a large television</li>
+          <ul>
+            <li>For example: "a beach at sunset", "a river in a mountain valley", "a futuristic cityscape at night"</li>
+          </ul>
+          <li><strong>Voting:</strong> Symposium attendees use a keyboard to vote for their favorite image in each category</li>
+          <li><strong>img2img:</strong> Once an image reaches a vote threshold, it is fed into an img2img diffusion to create three new variants for that prompt</li>
+      </ul>
+      <p>
+        As the loop continues, we theoretically generate increasingly pleasing images (at least, according to the crowd). We can map the parameters directly to evolutionary
+        principles:
       </p>
       <ul>
           <li><strong>Genotype and Inheritance:</strong> The seed image acts as the genetic code. We use <code>img2img</code> generation to pass phenotypic traits to the next generation.</li>
-          <li><strong>Mutation Rate:</strong> The denoising strength and guidance scale function as stochastic mutation. Too low and the species stagnates; too high and lineage is lost.</li>
-          <li><strong>Selection Pressure:</strong> Symposium attendees acted as the environment. Using a custom voting interface, they applied selective pressure, determining which phenotypes survived to reproduce.</li>
+          <li><strong>Mutation Rate:</strong> The denoising strength and guidance scale function as mutation rates. Too low and the species stagnates; too high and lineage is lost.</li>
+          <li><strong>Selection Pressure:</strong> Symposium attendees act as the environment. Using a voting interface, they applied selective pressure, determining which phenotypes survived to reproduce.</li>
       </ul>
-      <p>
-        We repeat this core loop, iteratively voting to create increasingly aesthetic images.
-      </p>
 
       <h3>HPC Architecture and Headless Interaction</h3>
       <p>
-        Running Stable Diffusion XL in near real-time requires VRAM-rich compute that exceeds standard local capabilities. I deployed this workflow on Yale’s 
+        Running Stable Diffusion XL on several images in real-time requires VRAM-rich compute that exceeds standard local capabilities. I deployed this workflow on Yale’s 
         <strong>McCleary High-Performance Computing cluster</strong>, which presented unique engineering challenges regarding resource allocation and interactive visualization in a headless environment.
       </p>
       <p>
-        To solve this, I engineered a <strong>decoupled architecture</strong> with help from Sam Friedman at Yale's Center for Research Computer:
+        While I built the backend, YCRC's Sam Friedman helped me set up X11 forwarding so attendees had an interactive display:
       </p>
       <ul>
-        <li><strong>Backend (Compute):</strong> A Python script utilizing <code>accelerate</code> and <code>xformers</code> handles heavy tensor operations and memory-efficient attention on A100 GPU nodes.</li>
+        <li><strong>Backend (Compute):</strong> A Python script utilizing <code>accelerate</code> and <code>xformers</code> integrates heavy tensor operations and memory-efficient attention on A100 GPU nodes with the core logic described above.</li>
         <li><strong>Frontend (Visualization):</strong> A lightweight <strong>Matplotlib</strong> viewer script utilizes <strong>X11 forwarding</strong> to project the generated gallery from the headless cluster directly to the local displays via SSH, allowing for real-time audience feedback loops.</li>
       </ul>
       <p>
-        One of the biggest challenges was building a stable environment with the shifting sands of AI workflows paired with the rigidity of the cluster.
-        At least the baptism of fire from dependency hell made me a stronger programmer!
+        The biggest engineering hurdle was dependency management. Getting the "shifting sands" of modern AI libraries to play nicely with the rigid environment of an HPC cluster was a crash course in dependency hell.
       </p>
 
       <figure style="text-align: center;">

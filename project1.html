@@ -58,24 +58,34 @@
       <h3><a href="https://github.com/jlelia/website" target="_blank" rel="noopener">GitHub Repo</a></h3>
       
       <div class="tech-stack">
-        <p><strong>Stack:</strong> Raspberry Pi 5 • Nginx • Bash • GitHub Actions (CI/CD) • HTML5/CSS3</p>
+        <p><strong>Stack:</strong> Raspberry Pi 5 | Bash | Nginx | GitHub Actions (CI/CD) | HTML5/CSS3</p>
       </div>
 
       <p>
-        <strong>Objective</strong>: Architect a full-stack web presence from first principles, bypassing managed hosting services 
-        to learn more about web infrastructure and deployment.
+        <strong>Practical Objective</strong>: Self-host a professional website to serve as an online resume, portfolio, and blog.
+        <strong>Learning Objective</strong>: Build command line fluency and a deeper understanding of computer networking.
       </p>
 
-      <h3>Infrastructure and Architecture</h3>
+      <h3>Infrastructure</h3>
       <p>
-        Rather than relying on abstracted cloud hosting, I serve this site from a <strong>Raspberry Pi 5</strong> running in 
-        my home network. This "bare-metal" approach requires managing the OS layer directly. I interact with the server exclusively 
-        via SSH (headless), enforcing a command-line-first workflow that mirrors the environment of high-performance computing clusters used in my research.
-      </p> 
-      
+        Rather than relying on cloud hosting, I serve this site from a <strong>Raspberry Pi 5</strong> in my home network. 
+        This "bare-metal" approach requires managing the OS layer directly. I interact with the server headlessly via SSH, enforcing 
+        a command-line-first workflow that mirrors the environment of high-performance computing clusters used in my research.
+      </p>
+      <p>
+        I've learned a lot by looking under the hood of computer networking. Not only is cloud-hosting costly, but it also abstracts away 
+        surprisingly simple workflows that can be learned in a day or two.
+      </p>
+
+      <h3>Security and Networking</h3>
+      <p>
+        Exposing a local machine to the open web requires security hardening. I utilize <strong>Nginx</strong> as a high-performance reverse proxy and secure the network using <strong>UFW</strong> (Uncomplicated Firewall) 
+        and <strong>Fail2Ban</strong> to automatically block attacks. I also ban IPs with suspicious behavior, which is easy to audit with <strong>GoAccess</strong>, a real-time log analysis tool.
+      </p>
+
       <h3>Automated Deployment (CI/CD)</h3>
       <p>
-        To ensure code reproducibility and streamline updates, I engineered a <strong>Continuous Deployment</strong> pipeline. I configured a self-hosted GitHub Actions runner directly on the Pi. 
+        To ensure consistency and streamline updates, I set up a <strong>Continuous Deployment</strong> pipeline via a GitHub Actions runner directly on the Pi. 
       </p>
       <p>
         Now, when I push changes to the repository, the runner automatically:
@@ -86,13 +96,8 @@
           <li>Deploys them to the Nginx serving directory</li>
       </ul>
       <p>
-        This eliminates manual file transfers (SCP) and ensures the live site always reflects the `main` branch state. This was also good practice for Python packaging workflows (<a href="/project2" target="_blank" rel="noopener">Project 2</a>).
-      </p>
-
-      <h3>Security and Networking</h3>
-      <p>
-        Exposing a local machine to the open web requires security hardening. I utilize <strong>Nginx</strong> as a high-performance reverse proxy and secure the network using <strong>UFW</strong> (Uncomplicated Firewall) 
-        and <strong>Fail2Ban</strong> to automatically mitigate intrusion attempts. I also ban IPs with suspicious behavior, which is easy to audit with <strong>GoAccess</strong>, a real-time log analysis tool.
+        This eliminates manual file transfers (SCP) and ensures the live site always reflects the `main` branch state, and it helped me with Python packaging workflows (<a href="/project2" target="_blank" rel="noopener">Project 2</a>).
+        It also circumvents the need for SSH, allowing me to update my website wherever I can access GitHub (including my phone!).
       </p>
 
       <figure style="text-align: center;">

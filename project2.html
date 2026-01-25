@@ -58,39 +58,45 @@
       <h3><a href="https://github.com/bindralab/cellpyability" target="_blank" rel="noopener">GitHub Repo</a></h3>
 
       <div class="tech-stack">
-        <p><strong>Stack:</strong> Python 3 • CellProfiler • PyInstaller • SciPy • Plotly • GitHub Actions</p>
+        <p><strong>Stack:</strong> Python 3 | Pandas/NumPy/SciPy | CellProfiler | Plotly | PyInstaller | GitHub Actions</p>
       </div>
 
       <p>
-        <strong>Objective</strong>: Improve cell viability analysis by automating high-throughput nuclei counting and statistical modeling. Open-sourced and available as a
-        code-free Windows application.
+        <strong>Practical Objective</strong>: Automate high-throughput nuclei counting and statistical modeling for in cellulo dose-response assays.
+        <strong>Learning Objective</strong>: Build fluency with Python and its data analysis ecosystem. Learn how to design, package, and distribute open-source software.
+
       </p>
       <p>
         Featured in <a href="https://medicine.yale.edu/news-article/meet-cellpyability-a-new-tool-developed-at-yale-to-accelerate-cancer-drug-discovery/" target="_blank" rel="noopener">Yale School of Medicine News</a>.
       </p>
 
-      <h3>Nuclei Counting is Superior to Metabolic Proxies</h3>
+      <h3>Nuclei Counting > Metabolic Proxies for Cell Viability</h3>
       <p>
-       Standard high-throughput screenings often rely on metabolic proxies (e.g. tetrazolium reduction or ATP content) to estimate cell death. While fast, these methods are often confounded by metabolic variability or redox-active drugs.
+       Standard high-throughput cell viability screens often rely on metabolic proxies (e.g. tetrazolium reduction or ATP content) to estimate cell death. While fast, these methods are often confounded by metabolic variability or redox-active drugs.
        Further, they lack cell-level resolution, giving a single fluorescent value per well that often loses linearity.
       </p>
       <p>
-        <strong>Direct nuclei counting</strong> offers a ground-truth measurement of survival with single-cell resolution and higher accuracy. However, the computational cost of analyzing high-content images typically forces researchers back 
-        to inferior metabolic proxies. <strong>CellPyAbility</strong> eliminates this trade-off, processing 60 whole-well images in under one minute on commodity hardware.
+        <strong>Direct nuclei counting</strong> offers a ground-truth measurement of survival with single-cell resolution and higher accuracy. However, the computational cost of analyzing high-content images can be prohibitive. 
+        <strong>CellPyAbility</strong> eliminates this trade-off, processing a 96-well plate in under one minute on commodity hardware. Our software can also analyze 59 unique drug combinations (three 96-well plates) and calculate synergy
+        scores for each combination in under three minutes. 
+      </p>
+      <p>
+        The difference in material cost is also non-trivial: for assessing one 96-well plate, CellTiter-Glo 2.0 costs $30 USD, WST-1 (tetrazolium) costs $16 USD, and our nuclei-counting method costs $0.65 USD.
+        Considering that research projects often require several cell lines, drugs, and biological replicates, the difference in cost can easily reach thousands of USD.
       </p>
 
       <h3>Software Architecture and Accessibility</h3>
       <p>
-        To ensure accessibility across the technical spectrum, I engineered a dual-architecture distribution:
+        To ensure accessibility across the technical spectrum, I made two distributions:
       </p>
       <ul>
         <li><strong>For Computational Biologists:</strong> A modular Python package (available via PyPI and Bioconda) integrating <strong>CellProfiler</strong> for headless image segmentation and <strong>NumPy/Pandas/SciPy</strong> for statistical analysis.</li>
-        <li><strong>For Bench Scientists:</strong> A standalone, code-free Windows executable (built with <strong>PyInstaller</strong>) that bundles the Python runtime and dependencies, requiring no distribution or coding knowledge.</li>
+        <li><strong>For Bench Scientists:</strong> A standalone, code-free Windows executable (built with <strong>PyInstaller</strong>) that bundles the Python runtime and dependencies with an easy-to-use GUI.</li>
       </ul>
 
       <h3>Mathematical Implementation</h3>
       <p>
-        The suite consists of two core analytical modules designed for robust statistical inference:
+        In addition to normalization and summary statistics, CellPyAbility consists of two core analytical modules for biological inference:
       </p>
       <ul>
         <li><strong>Logistic Regression:</strong> The GDA module fits dose-response curves using a <strong>5-parameter logistic (5PL)</strong> model, then solves for the IC50 for each condition. Depending on the experiment, the ratio of IC50s can be used as an approximate therapeutic index.</li>
