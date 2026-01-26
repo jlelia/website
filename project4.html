@@ -84,6 +84,14 @@
         <li><strong>Input Validation:</strong> The pipeline enforces compatibility at startup. This prevents silent failures common in legacy bioinformatics tools.</li>
     </ul>
 
+    <figure style="text-align: center;">
+         <img src="/images/crispy_snake.webp" alt="The DAG for crispy_snake CRISPR screen analysis" class="content-image" loading="lazy">
+         <figcaption>
+           <strong>Stylized Flowchart:</strong> The directed acyclic graph (DAG) for crispy_snake. Quality analysis is run on sequencing files, guide RNA sequences are matched to the 
+           CRISPR screen library, the guide counts are statistically analyzed, and the results are returned with visualizations. Image made with Nano Banana.
+         </figcaption>
+    </figure>
+
     <h3>Dual Statistical Modeling</h3>
     <p>
       Due to inherent variability of biological data and the many-hypotheses nature of screening approaches, custom statistical methods (MAGeCK, DrugZ) are utilized for CRISPR screens. 
@@ -93,8 +101,17 @@
         <li><strong>MAGeCK:</strong> Uses a negative binomial model to identify essential genes. It is highly robust to noise/outliers because it relies on consistent guide <em>rankings</em> rather than raw magnitude.</li>
         <li><strong>DrugZ:</strong> Uses a normalized Z-score approach. It relies on the summed <em>magnitude</em> of fold-change, making it often more sensitive for detecting gene depletion (drug sensitivity).</li>
     </ul>
+
+    <h3>Modernizing DrugZ</h3>
     <p>
-      I prefer using DrugZ, but it's trivial to add MAGeCK analysis. Also, consensus could be used to increase confidence for hits.
+      The original DrugZ algorithm is written in Python 2 and unavailable on standard package managers, so I refactored the codebase for Python 3/Pandas 2.0.
+    </p>
+    <p>
+      Crucially, I added native support for <strong>non-targeting control (NTC) centering</strong>. While whole-genome screens assume the median guide has zero biological effect, targeted libraries often violate this assumption. 
+      For example, a DNA damage response (DDR) screen will have a median shifted toward lethality (negative LFC). A tumor-suppressor screen will have a median shifted toward enhanced proliferation (positive LFC).
+    </p>
+    <p>
+      crispy_snake corrects this bias by centering the distribution on the NTCs, recovering hits that would otherwise be masked by the shifted distribution.
     </p>
 
     <h3>Automated Visualization</h3>
@@ -102,14 +119,6 @@
       In addition to data tables and quality reports, the pipeline automatically generates <strong>volcano plots</strong> for each comparison defined in the config file (e.g. vehicle vs. treated). 
       It highlights significant hits (FDR < 0.05) in red (enrichment) or blue (depletion), allowing for immediate visual assessment of the screen's results.
     </p>
-
-    <figure style="text-align: center;">
-         <img src="/images/crispy_snake.webp" alt="The DAG for crispy_snake CRISPR screen analysis" class="content-image" loading="lazy">
-         <figcaption>
-           <strong>Stylized Flowchart:</strong> The directed acyclic graph (DAG) for crispy_snake. Quality analysis is run on sequencing files, guide RNA sequences are matched to the 
-           CRISPR screen library, the guide counts are statistically analyzed, and the results are returned with visualizations. Image made with Nano Banana.
-         </figcaption>
-    </figure>
 
     <figure style="text-align: center;">
          <img src="/images/volcano.webp" alt="Volcano plot showing significant gene hits in red and blue" class="content-image" loading="lazy">
