@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO -->
+    <meta name="description" content="Overview of an automated CRISPR screen analysis pipeline">
+    <meta name="keywords" content="James Elia, project, project4, python, snakemake, crispr">
+    <meta name="author" content="James L. Elia">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.jlelia.net/project4">
+
+    <!-- Site Icons -->
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Project #4 – James L. Elia">
+    <meta property="og:description" content="Description of Snakemake automated CRISPR screen analysis">
+    <meta property="og:image" content="https://www.jlelia.net/images/crispy_snake.webp">
+    <meta property="og:url" content="https://www.jlelia.net/project4">
+    <meta property="og:type" content="website">
+
+    <!-- PWA / Mobile Enhancements -->
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+  <!-- Performance Optimizations -->
+  <link rel="preload" as="image" href="/images/headshot.webp" imagesrcset="/images/headshot.webp 1x" fetchpriority="high">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+
+  <title>Project #4 - James L. Elia</title>
+  </head>
+  <body>
+    <header>
+      <div class="header-inner container">
+  <div class="brand-group">
+          <img src="/images/headshot.webp" alt="James L. Elia headshot" class="headshot" width="75" height="75">
+          <h1>James L. Elia</h1>
+        </div>
+        <nav aria-label="Primary">
+          <a href="/">Home</a>
+          <a href="/about">About</a>
+          <a href="/publications">Publications</a>
+          <a href="/projects">Projects</a>
+          <a href="/blog">Blog</a>
+        </nav>
+      </div>
+    </header>
+  
+<main>
+    <h2>Project #4: crispy_snake - CRISPR Screen Analysis with Snakemake</h2>
+    <h3><a href="https://github.com/jlelia/crispy_snake" target="_blank" rel="noopener">GitHub Repo</a></h3>
+
+    <div class="tech-stack">
+      <p><strong>Stack:</strong> Snakemake | Python 3 | FastQC | MAGeCK | DrugZ | Conda</p>
+    </div>
+
+    <p>
+      <strong>Practical Objective</strong>: Automate the processing and analysis of CRISPR knockout screens, taking raw FASTQ sequencing data to statistical hit identification and visualization.
+    </p>
+    <p>
+      <strong>Learning Objective</strong>: Build fluency with workflow management systems (Snakemake) to create accessible and scalable bioinformatics pipelines.
+    </p>
+
+    <h3>Purpose of crispy_snake</h3>
+    <p>
+      CRISPR screens generate large datasets that require multi-step processing: quality control, read trimming, alignment, counting, and statistical modeling. Running these steps manually via shell scripts is error-prone and intimidating to bench scientists.
+      I built <strong>crispy_snake</strong> for my lab to enable in-house processing and analysis of CRISPR screens with a human-readable config file and single command. Snakemake scales easily across environments, making it perfect for use on the Yale HPC clusters.
+    </p>
+
+    <h3>Workflow Architecture</h3>
+    <p>
+      The pipeline is built on <strong>Snakemake</strong>, which defines the rules of the analysis as a Directed Acyclic Graph (DAG). This offers several advantages over bash scripts:
+    </p>
+    <ul>
+        <li><strong>Dependency Management:</strong> Each step runs in an isolated <strong>Conda</strong> environment. This prevents version conflicts (Python 2.7 for an old tool vs. Python 3.10 for a new one).</li>
+        <li><strong>Parallelization:</strong> Snakemake automatically parallelizes independent jobs (like processing four replicates at once) based on available CPU cores.</li>
+        <li><strong>Input Validation:</strong> The pipeline enforces compatibility at startup. This prevents silent failures common in legacy bioinformatics tools.</li>
+    </ul>
+
+    <h3>Dual Statistical Modeling</h3>
+    <p>
+      Due to inherent variability of biological data and the many-hypotheses nature of screening approaches, custom statistical methods (MAGeCK, DrugZ) are utilized for CRISPR screens. 
+      crispy_snake runs both algorithms in parallel:
+    </p>
+    <ul>
+        <li><strong>MAGeCK:</strong> Uses a negative binomial model to identify essential genes. It is highly robust to noise/outliers because it relies on consistent guide <em>rankings</em> rather than raw magnitude.</li>
+        <li><strong>DrugZ:</strong> Uses a normalized Z-score approach. It relies on the summed <em>magnitude</em> of fold-change, making it often more sensitive for detecting gene depletion (drug sensitivity).</li>
+    </ul>
+    <p>
+      I prefer using DrugZ, but it's trivial to add MAGeCK analysis. Also, consensus could be used to increase confidence for hits.
+    </p>
+
+    <h3>Automated Visualization</h3>
+    <p>
+      In addition to data tables and quality reports, the pipeline automatically generates <strong>volcano plots</strong> for each comparison defined in the config file (e.g. vehicle vs. treated). 
+      It highlights significant hits (FDR < 0.05) in red (enrichment) or blue (depletion), allowing for immediate visual assessment of the screen's results.
+    </p>
+
+    <figure style="text-align: center;">
+         <img src="/images/volcano.webp" alt="Volcano plot showing significant gene hits in red and blue" class="content-image" loading="lazy">
+         <figcaption>
+           <strong>Automated Visualization:</strong> A MAGeCK volcano plot generated by crispy_snake. Genes that cause significant resistance upon loss are red while those that cause significant sensitivity
+           upon loss are blue.
+         </figcaption>
+    </figure>
+
+    <div class="project-navigation">
+      <a class="nav-left" href="/project3">← Project #3</a>
+      <a class="nav-right" href="/projects">Project Hub →</a>
+    </div>
+</main>
+  
+    <footer>
+      <p>&copy; 2026 James L. Elia</p>
+    </footer>
+  </body>
+</html>
