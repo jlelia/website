@@ -71,6 +71,8 @@
     <h3>Purpose of crispy_snake</h3>
     <p>
       CRISPR screens generate large datasets that require multi-step processing: quality control, read trimming, alignment, counting, and statistical modeling. Running these steps manually via shell scripts is error-prone and intimidating to bench scientists.
+    </p>
+    <p>
       I built <strong>crispy_snake</strong> for my lab to enable in-house processing and analysis of CRISPR screens with a human-readable config file and single command. Snakemake scales easily across environments, making it perfect for use on the Yale HPC clusters.
     </p>
 
@@ -99,7 +101,7 @@
     </p>
     <ul>
         <li><strong>MAGeCK:</strong> Uses a negative binomial model to identify essential genes. It is highly robust to noise/outliers because it relies on consistent guide <em>rankings</em> rather than raw magnitude.</li>
-        <li><strong>DrugZ:</strong> Uses a normalized Z-score approach. It relies on the summed <em>magnitude</em> of fold-change, making it often more sensitive for detecting gene depletion (drug sensitivity).</li>
+        <li><strong>DrugZ:</strong> Uses a normalized Z-score approach. It relies on the summed <em>magnitude</em> of fold-change, typically increasing sensitive for detecting gene depletion.</li>
     </ul>
 
     <h3>Modernizing DrugZ</h3>
