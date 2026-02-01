@@ -8,6 +8,50 @@
   --border: #e5e7eb;
   --brand: #0ea5e9;
   --brand-dark: #0284c7;
+  --header-bg: #111827;
+  --footer-bg: #333333;
+  --intro-bg-start: #f8f9fa;
+  --intro-bg-end: #ffffff;
+  --intro-border: #cccccc;
+  --intro-heading: #333333;
+  --intro-text: #555555;
+  --card-bg: #f4f4f4;
+  --card-text: #333333;
+  --bio-border: #dddddd;
+  --pub-border: #dddddd;
+  --nav-border: #cccccc;
+  --equation-bg: #f5f5f5;
+  --headshot-border: #ffffff;
+  --headshot-bg: #e5e7eb;
+}
+
+/* Dark Mode */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-grad-start: #0f172a;
+    --bg-grad-end: #1e293b;
+    --text: #f1f5f9;
+    --muted: #94a3b8;
+    --surface: #1e293b;
+    --border: #334155;
+    --brand: #38bdf8;
+    --brand-dark: #0ea5e9;
+    --header-bg: #020617;
+    --footer-bg: #020617;
+    --intro-bg-start: #1e293b;
+    --intro-bg-end: #334155;
+    --intro-border: #475569;
+    --intro-heading: #f1f5f9;
+    --intro-text: #cbd5e1;
+    --card-bg: #334155;
+    --card-text: #f1f5f9;
+    --bio-border: #475569;
+    --pub-border: #475569;
+    --nav-border: #475569;
+    --equation-bg: #334155;
+    --headshot-border: #64748b;
+    --headshot-bg: #475569;
+  }
 }
 
 /* Base */
@@ -28,7 +72,7 @@ body {
 .container { max-width: 1100px; margin: 0 auto; padding: 0 1rem; }
 
 /* Header */
-header { background-color: #111827; color: white; }
+header { background-color: var(--header-bg); color: white; }
 .header-inner {
   display: flex;
   align-items: center;
@@ -42,8 +86,8 @@ header { background-color: #111827; color: white; }
   border-radius: 50%;
   object-fit: cover;
   margin-right: 12px;
-  border: 2px solid white;
-  background-color: #e5e7eb; /* subtle placeholder bg */
+  border: 2px solid var(--headshot-border);
+  background-color: var(--headshot-bg); /* subtle placeholder bg */
 }
 
 h1 { font-size: 1.5rem; font-weight: 700; margin: 0; }
@@ -69,13 +113,13 @@ nav a:hover { background-color: rgba(255,255,255,0.1); }
 
 /* Layout */
 main { padding: 2rem; flex: 1; }
-footer { background-color: #333; color: white; text-align: center; padding: 1rem; margin-top: auto; }
+footer { background-color: var(--footer-bg); color: white; text-align: center; padding: 1rem; margin-top: auto; }
 
 /* Home Intro */
 .intro {
-  background: linear-gradient(135deg, #f8f9fa, #ffffff);
+  background: linear-gradient(135deg, var(--intro-bg-start), var(--intro-bg-end));
   padding: 2.5rem;
-  border-bottom: 3px solid #ccc;
+  border-bottom: 3px solid var(--intro-border);
   margin-bottom: 2rem;
   text-align: center;
   border-radius: 12px;
@@ -84,8 +128,8 @@ footer { background-color: #333; color: white; text-align: center; padding: 1rem
   margin-left: auto;
   margin-right: auto;
 }
-.intro h2 { color: #333; font-weight: 700; font-size: 1.8rem; margin-bottom: 1rem; }
-.intro p { color: #555; font-size: 1.1rem; line-height: 1.6; }
+.intro h2 { color: var(--intro-heading); font-weight: 700; font-size: 1.8rem; margin-bottom: 1rem; }
+.intro p { color: var(--intro-text); font-size: 1.1rem; line-height: 1.6; }
 .intro ul { padding-left: 20px; list-style-type: disc; list-style-position: inside; }
 .intro ul li { margin-bottom: .5rem; font-size: 1.1rem; }
 
@@ -95,13 +139,13 @@ footer { background-color: #333; color: white; text-align: center; padding: 1rem
   border-radius: 12px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   text-decoration: none;
-  color: #333;
+  color: var(--card-text);
   width: 250px;
   padding: 1.5rem;
   text-align: center;
   font-weight: bold;
   transition: transform 0.2s, box-shadow 0.2s, filter 0.2s;
-  background: #f4f4f4;
+  background: var(--card-bg);
 }
 .card:hover { transform: scale(1.05); box-shadow: 0 4px 8px rgba(0,0,0,0.2); filter: brightness(0.98); }
 /* Home main cards hues */
@@ -140,12 +184,12 @@ footer { background-color: #333; color: white; text-align: center; padding: 1rem
 .qr-card figcaption { margin-top: .6rem; color: var(--muted); font-weight: 600; }
 
 /* About page */
-.bio { background: linear-gradient(135deg, #f8f9fa, #ffffff); padding: 2rem; border-bottom: 2px solid #ddd; margin-bottom: 2rem; border-radius: 12px; }
+.bio { background: linear-gradient(135deg, var(--intro-bg-start), var(--intro-bg-end)); padding: 2rem; border-bottom: 2px solid var(--bio-border); margin-bottom: 2rem; border-radius: 12px; }
 .bio h2 { font-size: 2rem; margin-bottom: 1rem; text-align: center; }
 
 /* Publications page */
 section details { margin-bottom: 1.5rem; }
-section h3 { margin-top: 2rem; margin-bottom: 1rem; border-bottom: 1px solid #ddd; padding-bottom: .5rem; }
+section h3 { margin-top: 2rem; margin-bottom: 1rem; border-bottom: 1px solid var(--pub-border); padding-bottom: .5rem; }
 
 /* Publications: alternating card colors for readability */
 .pub-list details {
@@ -161,13 +205,13 @@ section h3 { margin-top: 2rem; margin-bottom: 1rem; border-bottom: 1px solid #dd
 .pub-list summary { font-weight: 600; cursor: pointer; }
 
 /* Project/Blog detail nav */
-.project-navigation { display: flex; justify-content: space-between; margin-top: 40px; padding-top: 20px; border-top: 1px solid #ccc; }
+.project-navigation { display: flex; justify-content: space-between; margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--nav-border); }
 .project-navigation a { text-decoration: none; font-size: 1.2rem; color: var(--brand); transition: color .2s ease; }
 .project-navigation a:hover { color: var(--brand-dark); }
 
 /* Utilities */
 img { max-width: 100%; height: auto; }
-.equation { font-family: Menlo, Consolas, "Courier New", monospace; background: #f5f5f5; padding: .5em 1em; margin: 1em 0; text-align: center; border-radius: 4px; }
+.equation { font-family: Menlo, Consolas, "Courier New", monospace; background: var(--equation-bg); padding: .5em 1em; margin: 1em 0; text-align: center; border-radius: 4px; }
 
 /* Content images (replaces inline styles) */
 .content-image, figure img {
