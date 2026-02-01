@@ -148,11 +148,11 @@ footer { background-color: var(--footer-bg); color: white; text-align: center; p
   background: var(--card-bg);
 }
 .card:hover { transform: scale(1.05); box-shadow: 0 4px 8px rgba(0,0,0,0.2); filter: brightness(0.98); }
-/* Home main cards hues */
-.card:nth-child(1) { background: #E3F2FD; }
-.card:nth-child(2) { background: #FFEBEE; }
-.card:nth-child(3) { background: #E8F5E9; }
-.card:nth-child(4) { background: #FFFDE7; }
+/* Home main cards hues - keep dark text on pastel backgrounds */
+.card:nth-child(1) { background: #E3F2FD; color: #333333; }
+.card:nth-child(2) { background: #FFEBEE; color: #333333; }
+.card:nth-child(3) { background: #E8F5E9; color: #333333; }
+.card:nth-child(4) { background: #FFFDE7; color: #333333; }
 
 /* Projects specific */
 .card-img {
@@ -198,10 +198,10 @@ section h3 { margin-top: 2rem; margin-bottom: 1rem; border-bottom: 1px solid var
   padding: 1rem 1.25rem;
   background: var(--surface);
 }
-.pub-list details:nth-of-type(4n+1) { background: #E3F2FD; }
-.pub-list details:nth-of-type(4n+2) { background: #FFEBEE; }
-.pub-list details:nth-of-type(4n+3) { background: #E8F5E9; }
-.pub-list details:nth-of-type(4n+4) { background: #FFFDE7; }
+.pub-list details:nth-of-type(4n+1) { background: #E3F2FD; color: #333333; }
+.pub-list details:nth-of-type(4n+2) { background: #FFEBEE; color: #333333; }
+.pub-list details:nth-of-type(4n+3) { background: #E8F5E9; color: #333333; }
+.pub-list details:nth-of-type(4n+4) { background: #FFFDE7; color: #333333; }
 .pub-list summary { font-weight: 600; cursor: pointer; }
 
 /* Project/Blog detail nav */
