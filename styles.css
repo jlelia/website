@@ -155,11 +155,19 @@ footer { background-color: var(--footer-bg); color: white; text-align: center; p
   background: var(--card-bg);
 }
 .card:hover { transform: scale(1.05); box-shadow: 0 4px 8px rgba(0,0,0,0.2); filter: brightness(0.98); }
-/* Home main cards hues - keep dark text on pastel backgrounds */
+/* Light mode: pastel backgrounds with dark text */
 .card:nth-child(4n+1) { background: #E3F2FD; color: #333333; }
 .card:nth-child(4n+2) { background: #FFEBEE; color: #333333; }
 .card:nth-child(4n+3) { background: #E8F5E9; color: #333333; }
 .card:nth-child(4n+4) { background: #FFFDE7; color: #333333; }
+
+/* Dark mode: darker pastel versions with light text */
+@media (prefers-color-scheme: dark) {
+  .card:nth-child(4n+1) { background: #1e3a5f; color: #f1f5f9; }
+  .card:nth-child(4n+2) { background: #5f1e2e; color: #f1f5f9; }
+  .card:nth-child(4n+3) { background: #1e4d2b; color: #f1f5f9; }
+  .card:nth-child(4n+4) { background: #5f5519; color: #f1f5f9; }
+}
 
 /* Projects specific */
 .card-img {
@@ -209,6 +217,14 @@ section h3 { margin-top: 2rem; margin-bottom: 1rem; border-bottom: 1px solid var
 .pub-list details:nth-of-type(4n+2) { background: #FFEBEE; color: #333333; }
 .pub-list details:nth-of-type(4n+3) { background: #E8F5E9; color: #333333; }
 .pub-list details:nth-of-type(4n+4) { background: #FFFDE7; color: #333333; }
+
+@media (prefers-color-scheme: dark) {
+  .pub-list details:nth-of-type(4n+1) { background: #1e3a5f; color: #f1f5f9; }
+  .pub-list details:nth-of-type(4n+2) { background: #5f1e2e; color: #f1f5f9; }
+  .pub-list details:nth-of-type(4n+3) { background: #1e4d2b; color: #f1f5f9; }
+  .pub-list details:nth-of-type(4n+4) { background: #5f5519; color: #f1f5f9; }
+}
+
 .pub-list summary { font-weight: 600; cursor: pointer; }
 
 /* Project/Blog detail nav */
