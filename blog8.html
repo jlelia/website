@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO -->
+    <meta name="description" content="Blog #8 comparing generative AI hallucinations with information loss in scientific publishing.">
+    <meta name="keywords" content="James Elia, blog, blog8, scientific publishing, generative AI, hallucinations, information theory, lossy compression">
+    <meta name="author" content="James L. Elia">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.jlelia.net/blog8">
+
+    <!-- Site Icons -->
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Blog #8: Scientific Publishing as Lossy Compression">
+    <meta property="og:description" content="Comparing generative AI hallucinations with the encoding-decoding information loss of rigid scientific papers.">
+    <meta property="og:image" content="https://www.jlelia.net/images/headshot.webp">
+    <meta property="og:url" content="https://www.jlelia.net/blog8">
+    <meta property="og:type" content="website">
+
+    <!-- PWA / Mobile Enhancements -->
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Performance Optimizations -->
+    <link rel="preload" as="image" href="/images/headshot.webp" imagesrcset="/images/headshot.webp 1x" fetchpriority="high">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css">
+
+    <title>Blog #8: Scientific Publishing as Lossy Compression</title>
+  </head>
+  <body>
+    <header>
+      <div class="header-inner container">
+        <div class="brand-group">
+          <img src="/images/headshot.webp" alt="James L. Elia headshot" class="headshot" width="75" height="75">
+          <h1>James L. Elia</h1>
+        </div>
+        <nav aria-label="Primary">
+          <a href="/">Home</a>
+          <a href="/about">About</a>
+          <a href="/publications">Publications</a>
+          <a href="/projects">Projects</a>
+          <a href="/blog">Blog</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <h2>Blog #8: Scientific Publishing as Lossy Compression</h2>
+      <h3>01 April 2026</h3>
+
+      <h4>Overview</h4>
+      <p>It's April Fool's Day! The joke is on us because we rely on scientific publishing that enforces lossy compression, structurally and culturally.
+      </p>
+      <p>I discuss the parallels between the hallucinations in generative AI and the reproducibility crisis in science (especially biology).
+      </p>
+  
+      <h4>Hallucinations in Large-Language Models (LLMs)</h4>
+      <p>Hallucinations are not random errors, but inherent consequences of lossy compression. We can look at many examples of this across gen AI, but LLMs are familiar to most readers.
+        There's also some debate on whether we should call these effects "hallucinations" since it anthropomorphizes the model. The people who understand the underlying mechanisms of AI don't take it literally, 
+        and the people who don't understand will anthropomorphize anyway, so I think it's a useful term.
+      </p>
+      <p>First, it may be useful to consider the scale of training data for LLMs. GPT-5 is thought to be trained on about 75 trillion words.
+        Consider that if you read Tolstoy's 1300-page <em>War and Peace</em> once a day (you can't), it would take over 350,000 years to reach 75 trillion words read (you won't).
+      </p>
+      <p>
+        It follows that LLMs must not be recall machines. To fit 75 trillion words into a model that can run in limited time and hardware, it must be squished by several orders of magnitude.
+        This is what occurs during training: the model encodes the data into a compressed representation (the weights), and then decodes from this representation to generate new text. This is lossy, meaning
+        information is irretrievably lost during compression.
+      </p>
+      <p>To continue with a book analogy, an LLM takes a 100-chapter book (training data) and turns it into a few pages of instructions on how to recreate all 100 chapters (model weights). If we imagine an experiment where thousands 
+        of people read the book, write down a few-page summary, then hand it off to someone who has never read the book to rewrite it, we start approximating the encoding-decoding of an LLM.
+      </p>
+      <p>So when a model generates text, it is approximating the original data from its compressed representation, which can lead to hallucinations. This cannot be fixed by reducing the temperature, the 
+        built in randomness of the model.  Creating a deterministic model is more challenging than at first glance, but even such a model would hallucinate when the top choice is a hallucination.
+      </p>
+      <figure style="text-align: center;">
+         <img src="/images/llm_hal_1.webp" alt="Screenshot of an LLM hallucination" loading="lazy">
+         <figcaption>
+            An example of an LLM hallucination of identity. When asking Gemini 3 Pro if I can use a Dell XPS charger on a MacBook Pro, it assures me it's safe by saying it uses a Dell charger on its MacBook when
+            traveling. Thanks Gemini, I feel much safer now.
+         </figcaption>
+      </figure>
+      <figure style="text-align: center;">
+         <img src="/images/llm_hal_2.webp" alt="Screenshot of an LLM reasoning about its own hallucination, then hallucinating again" loading="lazy">
+         <figcaption>
+            Upon asking Gemini why it said that, it reasons about LLM training and common patterns on help forums. Interestingly, it creates a new hallucination in its response, saying it does not have a backpack, nor
+            does it travel to Japan. Neither a backpack nor Japan were mentioned in the conversation history.
+         </figcaption>
+      </figure>
+
+      <h4>Encoding and Decoding in Scientific Writing</h4>
+      <p>The gen AI connection occurred to me while discussing my dissertation writing to a colleague. We both agreed that dissertation writing is much easier than writing manuscripts because there is no strong filter.
+        I don't have to worry about word limits, journal scope, which reviewers I may get, or if my work fits into what's trendy. 
+      </p>
+      <p>I bet someone would have an easier time reproducing most of the findings in the average dissertation versus the
+        average high-impact paper, despite the length. As the saying goes, 90% of what you read in textbooks is likely true, 90% of what you read in a recent high-impact paper is likely false.
+      </p>
+      <p>
+        The more I think about it, the more types of miscommunication seem to stem from lossy information compression. Language itself is a lossy encoding of ideas, writing tends to lossiness compared to conversation,
+        and scientific publishing is lossy writing. 
+      </p>
+      <p>Lossy compression in scientific writing can be divided into three main categories: fundamental, structural, and cultural. After several rounds of encoding and decoding by
+        those reading the paper and then writing their own papers, the experimental findings can be distorted beyond recognition.
+      </p>
+      <h4>Fundamental Compression</h4>
+      <p>
+        Let's start with the one that is impossible to change but we've all learned to cope with. Language is a lossy encoding of thoughts and experiences. This is not a new idea so I won't spend much time on it.
+        When writing a paper, a scientist could not include every detail even if she had unlimited attention and no space limit. 
+      </p>
+      <blockquote>"The limits of my language are the limits of my world." <br><br><em>— Ludwig Wittgenstein</em></blockquote>
+      <p>The ideas and experiments performed must be put into words, typically English words. These words are interpreted
+        by readers who may decode the paper's findings or methods differently than the author intended.
+      </p>
+      <p>
+        This can be even more challenging for non-native English writers, who may encode and decode their ideas through an additional lens, so be kind during reviews! English is the lingua franca now, but remember the term "lingua franca" came from
+        a centuries-old pidgin of several languages, none of which were English...
+      </p>
+      <h4>Structural Compression</h4>
+      <p>This type of compression is most similar to what I described for LLMs above. We must translate years of research and data into several thousand words and a handful of figures. This would be hard to estimate even for napkin math, but my intuition is that this compression
+        ratio is far greater than GPT-5's 100x. 
+      </p>
+      <p>Thus, we immediately lose information that can contain essential context due to norms from a print-focused era. This is especially true for methods, which are often short and relegated to the supplementary information. Methods are essential for reproducibility, yet it's 
+        where authors, editors, and reviewers tend to spend the least time.
+      </p>
+      <p>A crazy example is <em>Pentsak et al. ACS Catalysis 2019</em>. For years, high-impact papers were published claiming the discovery of novel "metal-free" reactions. The structural compression of the methods usually reduced 
+        mixing to a single phrase (e.g. stirred at 80°C for 12 hours). 
+      </p>
+      <p>Pentsak demonstrated that standard Teflon-coated magnetic stir bars are soft enough to develop microscopic scratches, trapping trace amounts of palladium from previous experiments despite harsh solvent washes. 
+        When those "clean" stir bars were used in new reactions, the trapped palladium leached out. The "metal-free" reactions were actually driven by phantom transition metals hiding in the equipment.
+      </p>
+      <p>Even the word choice has become structural. Although this is a bit off-topic, I cannot stand the way some scientists write papers. It burns valuable space, artificially enhancing the compression, and obscures through cryptic language:</p>
+      <p>Instead of "especially in light of the fact of", use "considering". And "vide supra" ? "See above" is the same number of words, one less syllable, and from a language that's spoken outside the Vatican. Better yet, use "see section _" or "figure _", instead of sending me on a scavenger hunt.</p>
+
+      <h4>Cultural Compression</h4>
+      <p>This is the most insidious form of compression. The immense pressure to publish cohesive, novel, and positive science leads to intentional data compression. Cultural compression isn't done to save space but to purposefully skew the reader's decoding into a more favorable light. 
+      </p>
+      <p>It's the academic equivalent of the sycophancy we see in LLMs induced by Reinforcement Learning from Human Feedback (RLHF). This is an active corruption of the reward function, not a technical limitation.
+      </p>
+      <p>This leads to a number of bad behaviors:</p>
+      <ul>
+        <li><strong>Cherry-picking</strong>: Only reporting experiments that support the hypothesis, while excluding contradictory data.</li>
+        <li><strong>Picking cherries</strong>: Inverse cherry-picking, or avoiding experiments that could falsify the hypothesis.</li>
+        <li><strong>p-hacking</strong>: Manipulating data or analyses until statistically significant results are obtained.</li>
+          <ul>
+            <li>Running hundreds or thousands of hypothesis tests without correction.</li>
+            <li>Selecting the statistical test with the smallest value regardless of design.</li>
+            <li>Shuffling thresholds or groups to improve significance.</li>
+          </ul>
+        <li><strong>Data beautification</strong>: Presenting data in a way that makes it appear more favorable or significant than it actually is.
+          <ul>
+            <li>Using selective scales on graphs to exaggerate differences.</li>
+            <li>Omitting error bars or choosing favorable but inappropriate error measurements.</li>
+            <li>Choosing the absolute best-case "representative image" for publication.</li>
+          </ul>
+      </ul>
+      <h4>Solutions?</h4>
+      <p>We can blame authors for most of these practices. No one is more responsible for the quality of your science than you.
+        <em>However</em>, I pride myself on being a systems thinker, and the scientific publication and hiring systems directly enforce these behaviors.
+      </p>
+      <p>Gone are the days of printed journals with limited space and access, yet we continue to play by antiquated rules. Social media has given us an efficient model for sharing our science.
+        This can occur in real time, with unlimited space, raw data, and feedback from peers, immediately addressing the two compression types we have control over.
+      </p>
+      <p>A scientist must confirm her identity and affiliation to post or comment. After that, her feed is a running log of her research. Hiring committees would need to actually
+        evaluate the quality of the work instead of relying on journal prestige and authorship position as proxies. A daunting task, but it would be aided by community engagement,
+        with the most impactful work rising to the top through a peer-review-like process of votes and comments.
+      </p>
+      <p>
+        Some people may object and say that this would lead to a popularity contest. The current system is already a popularity contest, but with stronger gatekeeping and less transparency.
+        It would be hard to argue prestigious appointments at a select few institutions and top-tier publications are easier to obtain than a large number of upvotes on a public post.
+      </p>
+      <p>This approach would also free up scientists to focus on their research and iterate more quickly instead of spending months writing a paper and, occasionally, years reviewing it.
+        No more clunky peer review process that is increasingly out-sourced to AI and grad students, just good old-fashioned crowd sourcing. A literal mixture of experts.
+      </p>
+      <p>
+        Fret not, entrepreneurs! You could charge institutions for a license or offer advertising to scientific vendors. Agentic AI could crawl the site for data manipulation, initiating a private review
+        process if suspicious data is detected and creating a whole new market for data integrity services.
+      </p>
+      <p>One last benefit worth mentioning: science is increasingly data-driven, especially biomedicine. Having a website with constant data publication would allow for easy access and ingestion for AI, especially
+        with an API.</p>
+
+      <p>I don't know that this is the solution, but I know the current system is broken. It's fun to analogize with lossy compression and AI hallucinations,
+        but these publishing hallucinations cost time, money, and lives. It has never been more obvious how zero-sum scientific investment is. Maybe the best place to invest right now
+        is in the systems of science itself.
+      </p>
+
+      <p>- James</p>
+      <div class="project-navigation">
+        <a class="nav-left" href="/blog7">← Blog 7</a>
+        <a class="nav-right" href="/blog">Blog Hub →</a>
+      </div>
+    </main>
+
+    <footer>
+      <p>© 2026 James L. Elia</p>
+    </footer>
+  </body>
+</html>
