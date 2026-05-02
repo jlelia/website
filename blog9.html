@@ -67,17 +67,25 @@
 
         <p>If true, this structural monotony immediately disqualifies DNA as an information carrier. Though not formalized until 1948, the capacity of a system to store information is defined by its Shannon entropy (<i>H</i>):</p>
 
-        <div class="equation-container">
-          <div class="equation-math">
-            <i>H</i> <span class="math-rel">=</span> &minus;
-            <span class="sum-wrapper">
-              <span class="sum-limit"><i>n</i></span>
-              <span class="sum-symbol">&sum;</span>
-              <span class="sum-limit"><i>i</i>=1</span>
-            </span>
-            <i>p<sub>i</sub></i> log<sub>2</sub>(<i>p<sub>i</sub></i>)
-          </div>
-          <span class="equation-number">(1.1)</span>
+        <div style="display: flex; align-items: center; justify-content: center; position: relative; margin: 2rem 0; background: var(--equation-bg); padding: 1rem; border-radius: 4px;">
+        
+          <math xmlns="http://www.w3.org/1998/Math/MathML" display="block" style="font-size: 1.3rem; font-family: 'Times New Roman', Times, serif;">
+            <mi>H</mi>
+            <mo>=</mo>
+            <mo>&minus;</mo>
+            <munderover>
+              <mo>&sum;</mo>
+              <mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow>
+              <mi>n</mi>
+            </munderover>
+            <msub><mi>p</mi><mi>i</mi></msub>
+            <msub><mi>log</mi><mn>2</mn></msub>
+            <mo stretchy="false">(</mo>
+            <msub><mi>p</mi><mi>i</mi></msub>
+            <mo stretchy="false">)</mo>
+          </math>
+      
+          <span style="position: absolute; right: 2rem; font-family: 'Times New Roman', Times, serif; font-size: 1.1rem;">(1.1)</span>
         </div>
 
         <p>Where <i>p<sub>i</sub></i> is the probability of encountering a specific character [shannon_mathematical_1948]. If DNA is a perfectly periodic polymer, the probability of the next nucleobase is 1. Because the logarithm of 1 is zero, the sequence possesses zero mathematical entropy and, consequently, zero capacity to store genetic information. In short, a perfectly predictable code cannot store information.</p>

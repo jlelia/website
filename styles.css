@@ -243,67 +243,12 @@ section h3 { margin-top: 2rem; margin-bottom: 1rem; border-bottom: 1px solid var
 /* Utilities */
 img { max-width: 100%; height: auto; }
 
-/* Container to handle centering and the right-aligned number */
-.equation-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  margin: 2rem 0;
-  padding: 1rem;
-  background: var(--equation-bg);
-  border-radius: 4px;
-}
-
 /* Serif font to mimic LaTeX */
 .equation-math {
   display: flex;
   align-items: center;
   font-family: "Times New Roman", Times, serif;
   font-size: 1.3rem;
-}
-
-/* Stacks the limits above and below the symbol */
-.sum-wrapper {
-  display: inline-flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 0 0.4rem;
-}
-
-/* Enlarges the sigma */
-.sum-symbol {
-  font-size: 2.2rem;
-  line-height: 0.9;
-  font-weight: normal;
-}
-
-/* Shrinks the text for the bounds */
-.sum-limit {
-  font-size: 0.75rem;
-  line-height: 1;
-}
-
-/* Pins the equation number to the right edge */
-.equation-number {
-  position: absolute;
-  right: 2rem;
-  font-family: "Times New Roman", Times, serif;
-  font-size: 1.1rem;
-}
-
-/* Forces "thick space" kerning around relational operators */
-.math-rel {
-  margin: 0 0.4rem;
-}
-
-/* Pushes the top limit (n) up and the bottom limit (i=1) down */
-.sum-wrapper .sum-limit:first-child {
-  margin-bottom: 0.15rem;
-}
-
-.sum-wrapper .sum-limit:last-child {
-  margin-top: 0.15rem;
 }
 
 /* Content images (replaces inline styles) */
