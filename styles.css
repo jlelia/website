@@ -292,6 +292,20 @@ img { max-width: 100%; height: auto; }
   font-size: 1.1rem;
 }
 
+/* Forces "thick space" kerning around relational operators */
+.math-rel {
+  margin: 0 0.4rem;
+}
+
+/* Pushes the top limit (n) up and the bottom limit (i=1) down */
+.sum-wrapper .sum-limit:first-child {
+  margin-bottom: 0.15rem;
+}
+
+.sum-wrapper .sum-limit:last-child {
+  margin-top: 0.15rem;
+}
+
 /* Content images (replaces inline styles) */
 .content-image, figure img {
   /* Responsiveness */
