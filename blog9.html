@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Blog #9 dissertation writing sample on DNA repair and information theory.">
+    <meta name="keywords" content="James Elia, blog, blog9, DNA repair, information theory, entropy, two entropies, PhD dissertation">
+    <meta name="author" content="James L. Elia">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.jlelia.net/blog9">
+
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+    <meta property="og:title" content="Blog #9: Two Entropies">
+    <meta property="og:description" content="A dissertation writing sample exploring the intersection of DNA repair mechanisms and information theory.">
+    <meta property="og:image" content="https://www.jlelia.net/images/headshot.webp">
+    <meta property="og:url" content="https://www.jlelia.net/blog9">
+    <meta property="og:type" content="website">
+
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="preload" as="image" href="/images/headshot.webp" imagesrcset="/images/headshot.webp 1x" fetchpriority="high">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css">
+
+    <title>Blog #9: Two Entropies</title>
+  </head>
+  <body>
+    <header>
+      <div class="header-inner container">
+        <div class="brand-group">
+          <img src="/images/headshot.webp" alt="James L. Elia headshot" class="headshot" width="75" height="75">
+          <h1>James L. Elia</h1>
+        </div>
+        <nav aria-label="Primary">
+          <a href="/">Home</a>
+          <a href="/about">About</a>
+          <a href="/publications">Publications</a>
+          <a href="/projects">Projects</a>
+          <a href="/blog">Blog</a>
+          <a href="https://jael-labs.com" target="_blank" rel="noopener noreferrer">Jael Labs</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <article>
+        <h2>Blog #9: Two Entropies</h2>
+        <h3>01 April 2026</h3>
+        <h4>Overview</h4>
+        <p>The following is the first section of the first chapter of my doctoral dissertation. I've devoted all of my writing time to papers and the dissertation,
+            so this is one-part "I didn't have time to write a blog post" and one-part "I want to share some of my dissertation writing with you." The section explores the intersection of DNA repair mechanisms and information theory, highlighting the biological necessity of maintaining genomic integrity in the face of constant chemical decay. I hope you find it informative and engaging!    
+        </p>
+        <h2 id="sec:dna_fragility">Two Entropies: DNA Chemistry and the Necessity of Repair</h2>
+        
+        <blockquote class="epigraph">
+          <p><em>"Only entropy comes easy."</em><br>— Anton Chekhov</p>
+        </blockquote>
+
+        <p>Deoxyribonucleic acid (DNA) encodes information required for the development of life and the propagation of traits. While taught to grade-school students now, the early discoveries of DNA caused doubt that it could serve these purposes. Phoebus Levene discovered the structure of nucleic acids (phosphate, ribose, and nitrogenous base) in 1909. After decades of research on the topic, he published a 337-page monograph in 1931 that anchored biochemistry on his views [levene_nucleic_1931]. Levene proposed that DNA was composed of equal amounts of adenine, guanine, cytosine, and thymine, arranged in a rigid, repeating tetramer (e.g., G-C-T-A-G-C-T-A ...).</p>
+
+        <p>If true, this structural monotony immediately disqualifies DNA as an information carrier. Though not formalized until 1948, the capacity of a system to store information is defined by its Shannon entropy (<i>H</i>):</p>
+
+        <div class="equation-container">
+          <div class="equation-math">
+            <i>H</i> = &minus;
+            <span class="sum-wrapper">
+              <span class="sum-limit"><i>n</i></span>
+              <span class="sum-symbol">&sum;</span>
+              <span class="sum-limit"><i>i</i>=1</span>
+            </span>
+            <i>p<sub>i</sub></i> log<sub>2</sub>(<i>p<sub>i</sub></i>)
+          </div>
+          <span class="equation-number">(1.1)</span>
+        </div>
+
+        <p>Where <i>p<sub>i</sub></i> is the probability of encountering a specific character [shannon_mathematical_1948]. If DNA is a perfectly periodic polymer, the probability of the next nucleobase is 1. Because the logarithm of 1 is zero, the sequence possesses zero mathematical entropy and, consequently, zero capacity to store genetic information. In short, a perfectly predictable code cannot store information.</p>
+
+        <p>A second obstacle to nucleic acid's recognition as the carrier of genetic information came when Wendell Stanley crystallized the tobacco-mosaic virus in 1935 and observed only protein, likely due to the instability of the viral ribonucleic acid (RNA) during processing [stanley_isolation_1935]. This further reinforced the idea that nucleic acids were structural filler, while proteins were both the genetic information and its expression.</p>
+
+        <p>An elegant set of experiments conducted in 1944 by Oswald Avery, Colin MacLeod, and Maclyn McCarty demonstrated that DNA was indeed the transforming material by systematically ablating protein, RNA, lipids and carbohydrates, or DNA from cell extracts, then testing the ability of the extract to transform living bacteria [avery_studies_1944]. Only the DNA ablation prevented transformation. Unfortunately, these results were met with doubt. The repeating structure of DNA could not transmit information, thus some ultra-trace protein must be the true transforming material.</p>
+
+        <p>Two additional findings were required to convince the field of DNA's role as the molecule of inheritance. In 1952, Alfred Hershey and Martha Chase used radiolabeled sulfur to track viral protein and radiolabeled phosphate to track viral DNA, both atoms being exclusive to their respective macromolecules [hershey_independent_1952]. Upon infecting bacteria with the viruses, only the radiolabeled phosphorous remained in the bacterial progeny. Indeed, the radiolabeled sulfur could not even penetrate the first generation of infected bacteria.</p>
+
+        <p>In 1953, James Watson and Francis Crick described DNA as two helical ribose-phosphate backbones with nitrogenous bases on the inside [watson_molecular_1953]. The bases form hydrogen bonds across helices that hold the molecule together when summed across long stretches. This discovery was made possible by the incredibly precise crystallography and X-ray photography of Rosalind Franklin and Raymond Gosling that identified that the ribose-phosphate backbone made the exterior of the molecule and formed a double helix [franklin_molecular_1953].</p>
+
+        <p>With conclusive biological evidence and a resolved non-repeating structure, one mystery was solved. But a new mystery arose: how could chemically labile DNA successfully store information across generations? While beyond the scope of this introduction, all of biology can be viewed as the expenditure of energy to resist entropy. This is especially poignant for DNA, as the warm, aqueous environment of mammalian cells drives the spontaneous hydrolysis of its <i>N</i>-glycosidic bonds and hydrolytic deamination of its exocyclic amines. A mammalian cell loses approximately 10,000 purines per day via hydrolysis of the <i>N</i>-glycosidic bond [lindahl_rate_1972] and 100-500 cytosines per day via hydrolytic deamination [lindahl_heat-induced_1974].</p>
+
+        <p>Beyond spontaneous hydrolysis, DNA must tolerate endogenous genotoxins. Aldehydes, for example, are ubiquitous electrophilic byproducts of cellular metabolism that are highly reactive toward the nucleophilic centers of DNA nucleobases. Formaldehyde is uniquely toxic among these species due to its capacity to form DNA crosslinks. Mechanistically, the nucleophilic attack of a DNA nucleobase upon the carbonyl carbon generates a hemiaminal intermediate. Following dehydration to a highly reactive Schiff base, a second nucleophilic attack by an adjacent nucleobase yields a covalent methylene bridge [feldman_reactions_1973]. Considering the physiological concentration of formaldehyde in blood is approximately 100 &mu;M [heck_formaldehyde_1985], this dual-reactivity represents a constant threat to DNA.</p>
+
+        <p>Ironically, the cell's sophisticated mechanism for generating energy to resist entropy is the most abundant source of endogenous DNA damage. Aerobic respiration continuously leaks reactive oxygen species (ROS), like superoxide and hydrogen peroxide, from the mitochondrial electron transport chain. Through Fenton chemistry, these precursors generate hydroxyl radicals (OH&bull;) that attack the electron-rich double bonds of nucleobases. Because guanine possesses the lowest oxidation potential among the canonical bases, it serves as the primary thermodynamic sink for this damage, yielding the highly mutagenic lesion 8-oxo-7,8-dihydroguanine (8-oxoG). It is estimated that a single mammalian cell endures up to 100,000 oxidative hits to its genome daily [ames_oxidants_1993], establishing ROS as a massive, continuous driver of genomic instability.</p>
+
+        <p>The intensity of endogenous thermodynamic decay presents a biological paradox: without continuous intervention, the chemical half-life of DNA in water is incompatible with life, even before considering additional endogenous DNA damage described above. In 1974, Tomas Lindahl resolved this by demonstrating that the genome is subject to constant, energy-intensive molecular surveillance. Pioneered by the discoveries of Lindahl, Paul Modrich, and Aziz Sancar, who elucidated the mechanistic principles of base excision [lindahl_n-glycosidase_1974], mismatch [lahue_dna_1989], and nucleotide excision repair [sancar_novel_1983], respectively, the field of DNA repair established how cells actively maintain their genomic Shannon entropy. The mammalian DNA damage response (DDR) utilizes a hierarchy of repair pathways, ranging from energetically efficient direct reversal to complex orchestras for double-strand break (DSB) repair.</p>
+
+        <p>The most energetically conservative mechanism of the DDR is direct reversal, which restores the damaged nucleotide without incising the phosphodiester or <i>N</i>-glycosidic bonds. This high-fidelity process is only possible for specific alkylation events. For example, human O<sup>6</sup>-methylguanine-DNA methyltransferase (MGMT) directly transfers alkyl groups from the O<sup>6</sup> position of guanine to a reactive cysteine residue within its active site [tano_isolation_1990]. Because this irreversible covalent transfer permanently inactivates the protein, MGMT functions as a stoichiometric suicide enzyme rather than a true catalyst. By contrast, AlkB homologs 2 and 3 (ALKBH2 and ALKBH3) function as &alpha;-ketoglutarate- and Fe<sup>2+</sup>-dependent dioxygenases to directly oxidize various alkyl lesions, including methyl, ethyl, and exocyclic etheno adducts. Mechanistically, this enzyme-catalyzed hydroxylation drives the spontaneous decomposition of the aberrant alkyl group into an aldehyde or glyoxal byproduct, restoring the canonical base structure [aas_human_2003]. Circumventing the need for endonucleases and polymerases, direct reversal resolves DNA lesions while eliminating the risk of collateral strand breaks. MGMT and ALKBH2/3 will be covered in greater detail as foci of Chapters 2 and 3, respectively.</p>
+
+        <p>When direct reversal is chemically impossible, mammalian cells rely on excision repair pathways to physically remove and replace damaged nucleotides. Base excision repair (BER) resolves high-volume, non-bulky endogenous lesions such as DNA-uracil or 8-oxoG. Mechanistically, a lesion-specific glycosylase cleaves the <i>N</i>-glycosidic bond, generating an apurinic/apyrimidinic (AP) site. The human AP endonuclease (APE1) subsequently incises the phosphodiester backbone 5' to the abasic site, generating a single-strand break (SSB). The sensor protein Poly(ADP-ribose) polymerase 1 (PARP1) rapidly binds these SSBs, auto-PARylating itself to recruit a scaffolding complex comprising DNA polymerase &beta;, XRCC1, and DNA ligase III to synthesize and seal the replacement patch [kubota_reconstitution_1996]. The success of PARP1 inhibition in cancer therapy is described later in this chapter.</p>
+
+        <p>While BER excises individual bases, some damage requires removal of DNA strands. Bulky, helix-distorting lesions are resolved by nucleotide excision repair (NER). Mammalian NER operates via a molecular cut-and-patch mechanism that recognizes structural distortions rather than specific base chemistries [aboussekhra_mammalian_1995]. Upon recognition of the lesion by the XPC complex (global genomic NER, GG-NER) or a stalled RNA polymerase (transcription-coupled NER, TC-NER), the TFIIH complex unwinds the helix. The structure-specific endonucleases XPF-ERCC1 and XPG then execute dual incisions flanking the damage, excising a 24- to 32-base single-stranded oligonucleotide. The resulting gap is filled by replicative polymerases &delta; or &epsilon; and sealed by DNA ligase I. Mismatch repair (MMR) functions as the post-replication proofreader. In humans, the MutS&alpha; heterodimer (MSH2/MSH6) recognizes geometric distortion of Watson-Crick mispairs and 1-2 bp insertion-deletion loops (IDLs), single-stranded indels. Concurrently, the MutS&beta; heterodimer (MSH2/MSH3) recognizes and binds larger IDLs [drummond_isolation_1995]. Both sensor complexes recruit the MutL&alpha; endonuclease (MLH1/PMS2) [fishel_human_1993]. MutL&alpha; nicks the newly synthesized daughter strand, initiating exonuclease-mediated degradation of the error-containing tract before replicative polymerases restore sequence fidelity.</p>
+
+        <p>If single-strand lesions escape repair prior to replication, or if the cell suffers acute exogenous damage, the replication fork collapses into a DSB. DSBs are especially toxic because they prevent proper chromosome segregation during mitosis, leading to cell death under most circumstances. To address this, mammalian cells deploy two primary DSB repair pathways. In the G1 phase, non-homologous end joining (NHEJ) rapidly ligates broken ends. The Ku70/Ku80 heterodimer binds the severed termini like a butterfly bandage. Ku70/Ku80 recruits DNA-dependent protein kinase catalytic subunit (DNA-PKcs), which orchestrates direct ligation, often resulting in small mutagenic insertions or deletions [gottlieb_dna-dependent_1993]. In contrast, during the S and G2 phases, homologous recombination (HR) utilizes an intact sister chromatid to execute error-free repair. Following extensive end resection, the BRCA1 and BRCA2 tumor suppressors mediate the loading of RAD51 nucleoprotein filaments onto the single-stranded overhangs [moynahan_brca1_1999]. These filaments invade the homologous sister chromatid, utilizing it as an exact physical template to restore the DNA sequence with absolute thermodynamic and informational fidelity.</p>
+
+        <p>The repair pathways discussed focus on single-stranded damage. By contrast, inter-strand crosslinks (ICLs) staple opposite strands of the double helix together, physically blocking the CMG replicative helicase during S phase and requiring the Fanconi Anemia (FA) pathway for removal. Upon recognition of the stalled fork, the multi-subunit FA core complex functions as an E3 ubiquitin ligase to monoubiquitinate the FANCD2-FANCI heterodimer [garcia-higuera_interaction_2001]. This ubiquitinated ID complex serves as a chromatin-bound scaffold, recruiting structure-specific endonucleases (SLX4, XPF-ERCC1, and MUS81) to execute nucleolytic incisions flanking the crosslink on a single strand. This "unhooking" event relieves the structural block and permits translesion synthesis (TLS) polymerases to bypass the lesion, collapsing the replication fork into a one-sided double-strand break. The FA pathway hands off the newly-generated DSB to the HR machinery. The convergence of these pathways is absolute; the essential HR mediators BRCA1 and BRCA2 are biochemically synonymous with the FA complementation group proteins FANCS and FANCD1, respectively [howlett_biallelic_2002]. Together, the FA-HR network ensures that ICLs are unhooked and faithfully resolved via sister chromatid templating prior to mitotic entry. Both FA and HR receive greater attention in Chapters 4 and 5.</p>
+
+        <p>While the canonical pathways described above cover the primary architecture of the mammalian DDR, the diversity of genomic stress and fallibility of repair necessitate auxiliary mechanisms. I will briefly review them. The most frequent replication error is the aberrant incorporation of millions of ribonucleotides, which must be systematically removed by RNase H2 via ribonucleotide excision repair (RER) [williams_processing_2016]. Ubiquitous electrophiles like formaldehyde covalently trap histones and topoisomerases to the genome; these massive steric blocks require specialized DNA-protein crosslink (DPC) repair, relying on the SPRTN metalloprotease to degrade the adduct [stingele_mechanism_2016]. When replication forks encounter the remnants of these DPCs or other unhooked bulky lesions, the cell utilizes TLS, substituting replicative machinery for active-site-spacious polymerases (e.g. Pol &eta; or &zeta;) that bypass the lesion at the direct cost of mutagenesis [sale_y-family_2012]. Finally, in the absence of functional HR or NHEJ, cells rely on highly mutagenic backup DSB repair mechanisms: single-strand annealing (SSA) resolves breaks flanked by repetitive sequences via massive sequence deletion, while alternative end-joining (alt-EJ) utilizes Poly(ADP-ribose) polymerase 1 (PARP1) and DNA polymerase &theta; to ligate microhomologies [mateos-gomez_mammalian_2015]. Although these auxiliary pathways are often exploited by cancer to survive replication stress, their detailed biochemical mechanics remain beyond the primary scope of this text.</p>
+
+        <p>Taken together, the mammalian DDR can be viewed as the "Swiss cheese" model of safety. There will be holes, but no holes should travel all the way through. If the cell cannot remove the adduct with direct repair, it replaces the nucleotide with key-and-lock BER. If it cannot be removed by BER, a single-stranded oligo is excised and replaced with MMR or NER. If the lesion persists into replication or crosslinks opposing strands, a DSB is generated and addressed by HR, which resects hundreds to thousands of bases. Each stage requires significantly more energy. If a mammalian cell is overwhelmed by DNA damage, it is more likely to die than divide. This is a necessary feature of multicellular organisms. Better to opt for the loss of one cell than faulty repair that could ultimately damage the tissue and organism. However, cancer founder mutations can tip this balance towards survival, cutting the brakes with loss of p53 or forcing the accelerator with an activating KRAS mutation, for example. Once DNA repair pathways are lost, mutagenic fuel is added to the fire, helping develop new traits. However, loss of these pathways also offer therapeutic avenues to target cancer over normal tissue.</p>
+      </article>
+    </main>
+    <footer>
+      <p>&copy; 2026 James L. Elia</p>
+    </footer>
+  </body>
+</html>

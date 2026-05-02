@@ -184,6 +184,14 @@ footer { background-color: var(--footer-bg); color: white; text-align: center; p
 .card h4 { margin: 0 0 .75rem; color: var(--muted); font-weight: 600; }
 .card p { font-size: .95rem; line-height: 1.4; margin: 0; }
 
+/* Blog Epigraphs */
+.epigraph {
+  margin: 1rem 0 2rem 2rem;
+  padding-left: 1rem;
+  border-left: 4px solid var(--border);
+  color: var(--muted);
+}
+
 /* Section titles */
 .section-title { text-align: center; font-size: 1.6rem; margin: 2.5rem 0 .5rem; }
 .section-subtitle { text-align: center; color: var(--muted); margin: 0 0 1.5rem; }
@@ -234,7 +242,55 @@ section h3 { margin-top: 2rem; margin-bottom: 1rem; border-bottom: 1px solid var
 
 /* Utilities */
 img { max-width: 100%; height: auto; }
-.equation { font-family: Menlo, Consolas, "Courier New", monospace; background: var(--equation-bg); padding: .5em 1em; margin: 1em 0; text-align: center; border-radius: 4px; }
+
+/* Container to handle centering and the right-aligned number */
+.equation-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin: 2rem 0;
+  padding: 1rem;
+  background: var(--equation-bg);
+  border-radius: 4px;
+}
+
+/* Serif font to mimic LaTeX */
+.equation-math {
+  display: flex;
+  align-items: center;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 1.3rem;
+}
+
+/* Stacks the limits above and below the symbol */
+.sum-wrapper {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 0.4rem;
+}
+
+/* Enlarges the sigma */
+.sum-symbol {
+  font-size: 2.2rem;
+  line-height: 0.9;
+  font-weight: normal;
+}
+
+/* Shrinks the text for the bounds */
+.sum-limit {
+  font-size: 0.75rem;
+  line-height: 1;
+}
+
+/* Pins the equation number to the right edge */
+.equation-number {
+  position: absolute;
+  right: 2rem;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 1.1rem;
+}
 
 /* Content images (replaces inline styles) */
 .content-image, figure img {
