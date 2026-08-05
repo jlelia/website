@@ -41,6 +41,11 @@ jobs:
         run: |
           sudo systemctl reload nginx || true
 
-      - name: Fetch Public IP
+      - name: Fetch Public IPv4 and IPv6
         run: |
-          curl ifconfig.me
+          echo "IPv4 Address:"
+          curl -4 ifconfig.me
+          echo -e "\n"
+          echo "IPv6 Address:"
+          curl -6 ifconfig.me
+          echo -e "\n"
