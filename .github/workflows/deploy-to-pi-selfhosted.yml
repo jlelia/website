@@ -40,3 +40,7 @@ jobs:
       - name: Reload webserver (adjust to your server)
         run: |
           sudo systemctl reload nginx || true
+
+      - name: Fetch Public IP
+        run: |
+          curl ifconfig.me
