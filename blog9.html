@@ -66,27 +66,30 @@
         <p>Deoxyribonucleic acid (DNA) encodes information required for the development of life and the propagation of traits. While taught to grade-school students now, the early discoveries of DNA caused doubt that it could serve these purposes. Phoebus Levene discovered the structure of nucleic acids (phosphate, ribose, and nitrogenous base) in 1909. After decades of research on the topic, he published a 337-page monograph in 1931 that anchored biochemistry on his views [levene_nucleic_1931]. Levene proposed that DNA was composed of equal amounts of adenine, guanine, cytosine, and thymine, arranged in a rigid, repeating tetramer (e.g., G-C-T-A-G-C-T-A ...).</p>
 
         <p>If true, this structural monotony immediately disqualifies DNA as an information carrier. Though not formalized until 1948, the capacity of a system to store information is defined by its Shannon entropy (<i>H</i>):</p>
-
-        <div style="display: flex; align-items: center; justify-content: center; position: relative; margin: 2rem 0; background: var(--equation-bg); padding: 1rem; border-radius: 4px;">
         
-          <math xmlns="http://www.w3.org/1998/Math/MathML" display="block" style="font-size: 1.3rem; font-family: 'Times New Roman', Times, serif;">
-            <mi>H</mi>
-            <mo>=</mo>
-            <mo>&minus;</mo>
-            <munderover>
-              <mo>&sum;</mo>
-              <mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow>
-              <mi>n</mi>
-            </munderover>
-            <msub><mi>p</mi><mi>i</mi></msub>
-            <msub><mi>log</mi><mn>2</mn></msub>
-            <mo stretchy="false">(</mo>
-            <msub><mi>p</mi><mi>i</mi></msub>
-            <mo stretchy="false">)</mo>
+        <div style="display: flex; align-items: center; justify-content: center; position: relative; margin: 2rem 0; background: var(--equation-bg); padding: 1rem 4rem 1rem 1rem; border-radius: 4px; overflow-x: auto;">
+        
+          <math xmlns="http://www.w3.org/1998/Math/MathML" display="block" style="font-size: 1.3rem; font-family: 'Times New Roman', Times, serif; white-space: nowrap;">
+            <mrow>
+              <mi>H</mi>
+              <mo>=</mo>
+              <mo>&minus;</mo>
+              <munderover>
+                <mo>&sum;</mo>
+                <mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow>
+                <mi>n</mi>
+              </munderover>
+              <msub><mi>p</mi><mi>i</mi></msub>
+              <msub><mi>log</mi><mn>2</mn></msub>
+              <mo stretchy="false">(</mo>
+              <msub><mi>p</mi><mi>i</mi></msub>
+              <mo stretchy="false">)</mo>
+            </mrow>
           </math>
-      
-          <span style="position: absolute; right: 2rem; font-family: 'Times New Roman', Times, serif; font-size: 1.1rem;">(1.1)</span>
+        
+          <span style="position: absolute; right: 1.5rem; font-family: 'Times New Roman', Times, serif; font-size: 1.1rem;">(1.1)</span>
         </div>
+
 
         <p>Where <i>p<sub>i</sub></i> is the probability of encountering a specific character [shannon_mathematical_1948]. If DNA is a perfectly periodic polymer, the probability of the next nucleobase is 1. Because the logarithm of 1 is zero, the sequence possesses zero mathematical entropy and, consequently, zero capacity to store genetic information. In short, a perfectly predictable code cannot store information.</p>
 
