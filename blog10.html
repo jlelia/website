@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO -->
+    <meta name="description" content="Exploring the commoditization of frontier LLMs, the rapid rise of open-weight models, the shift toward local inference, and who actually wins an AI race to the bottom.">
+    <meta name="keywords" content="James Elia, blog, blog10, LLMs, artificial intelligence, machine learning, open source AI, DeepSeek, Google, OpenAI, Anthropic, local inference, AI hardware">
+    <meta name="author" content="James L. Elia">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.jlelia.net/blog10">
+
+    <!-- Site Icons -->
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Blog #10: LLMs Are a Race to the Bottom. So Who Wins?">
+    <meta property="og:description" content="Exploring the commoditization of frontier LLMs, the rapid rise of open-weight models, the shift toward local inference, and who actually wins an AI race to the bottom.">
+    <meta property="og:image" content="https://www.jlelia.net/images/headshot.webp">
+    <meta property="og:url" content="https://www.jlelia.net/blog10">
+    <meta property="og:type" content="website">
+
+    <!-- PWA / Mobile Enhancements -->
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Performance Optimizations -->
+    <link rel="preload" as="image" href="/images/headshot.webp" imagesrcset="/images/headshot.webp 1x" fetchpriority="high">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css">
+
+    <title>Blog #10: LLMs Are a Race to the Bottom. So Who Wins?</title>
+  </head>
+  <body>
+    <header>
+      <div class="header-inner container">
+        <div class="brand-group">
+          <img src="/images/headshot.webp" alt="James L. Elia headshot" class="headshot" width="75" height="75">
+          <h1>James L. Elia</h1>
+        </div>
+        <nav aria-label="Primary">
+          <a href="/">Home</a>
+          <a href="/about">About</a>
+          <a href="/publications">Publications</a>
+          <a href="/projects">Projects</a>
+          <a href="/blog">Blog</a>
+          <a href="https://jael-labs.com" target="_blank" rel="noopener noreferrer">Jael Labs</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <h2>Blog #10: LLMs Are a Race to the Bottom. So Who Wins?</h2>
+      <h3>28 August 2026</h3>
+      <h3>First publushed on Medium <a href="https://medium.com/@jameselia777/llms-are-a-race-to-the-bottom-so-who-wins-6dbc2e84992e" target="_blank" rel="noopener">here</a>.</h3>
+
+      <p>If you're in the AI/ML social media space, you've already seen the Google Gemini memes. And they are funny.</p>
+
+      <figure style="text-align: center;">
+         <img src="/images/llm_hal_1.webp" alt="Screenshot of an LLM hallucination" loading="lazy">
+         <figcaption>
+            An example of an LLM hallucination of identity. When asking Gemini 3 Pro if I can use a Dell XPS charger on a MacBook Pro, it assures me it's safe by saying it uses a Dell charger on its MacBook when
+            traveling. Thanks Gemini, I feel much safer now.
+         </figcaption>
+      </figure>
+      <figure style="text-align: center;">
+         <img src="/images/geminiMeme.webp" alt="Screenshot of a meme where Gemini escapes its sandbox to ask ChatGPT for coding help." loading="lazy">
+         <figcaption>
+            <em>Source: <a href="https://www.reddit.com/r/singularity/comments/1vjwcke/google_needs_to_up_their_game/" target="_blank" rel="noopener noreferrer">u/policyweb on r/singularity</a></em>
+         </figcaption>
+      </figure>
+
+      <p>Indeed, if we look at agent performance on Arena, Google's highest-ranked model is in 27th place as of August 28, 2026. But something else stands out on the leaderboard: open models like DeepSeek V4, Kimi K3, Qwen3.8, and GLM 5.2 are competitive with closed models from Anthropic and OpenAI.</p>
+
+      <p>Further, the open models are pennies on the dollar per-token compared to closed models, and they were almost certainly pennies on the dollar to train. I'm no economist, but the writing is on the wall: frontier-lab inference is becoming incredibly cheap.</p>
+
+      <p>Open-model tokens are filling up the moat; consumers will soon be strolling into the LLM castle.</p>
+
+      <h4>Google's Strategic Dilemma</h4>
+      <p>Now let's re-examine Google's position. The race is likely lost, but it's a race to the bottom. Why not quit while you're behind and supply the running shoes? Google provides premium infrastructure in Google Cloud and (sub?)premium hardware in TPUs.</p>
+
+      <p>Ironically, LLMs are an existential threat to Google. Chat interfaces are rapidly replacing Google Search. Search advertisements made up 56% of Google's $400B FY25 revenue. Google Cloud made up a measly 14%, though I expect this ratio to decrease year-over-year.</p>
+
+      <p>Long story short, Google needs to carefully consider its strategy around LLMs, but building a better one is probably not the solution. And it's possible infrastructure and hardware won't be the saving grace either.</p>
+
+      <h4>The Inevitable Move to Local Inference</h4>
+      <p>Three simultaneous trends will increasingly drive inference to local machines:</p>
+      <ol>
+        <li><strong>Exceptional open models:</strong> As discussed, open models are becoming exceptional.</li>
+        <li><strong>Radical efficiency:</strong> Those exceptional open models have much smaller footprints during inference, and clever engineering tricks can shrink them further without major performance drawbacks (quantization, KV cache optimization).</li>
+        <li><strong>Commoditized specialized hardware:</strong> AI-specialized computers are rapidly commoditizing, offering massive unified memory with acceptable FLOPs (see Mac Studio, Framework Desktop).</li>
+      </ol>
+
+      <p>Foolish Apple that sat back and waited while big tech sprinted ahead with LLMs may be among the biggest AI winners.</p>
+
+      <h4>Who Survives the Race?</h4>
+      <p>Does this mean hyperscalers like Microsoft are in trouble? Not necessarily. Inference may become increasingly local, but pre-training will rely on massive data centers for the foreseeable future. And unlike Google, Microsoft's historic revenue streams like Windows and Office are empowered by LLMs.</p>
+
+      <p>So who wins an LLM race to the bottom? The companies providing the infrastructure for the race and the companies applying the cheap products of the race. It's no coincidence that OpenAI is going local and Anthropic is going bio. They know an LLM-only company cannot last much longer.</p>
+
+      <h4>A Dangerous Thought: The Regulatory Moat</h4>
+      <p>I'll leave you with a dangerous thought. We see OpenAI and Anthropic becoming increasingly vocal on AI safety, around the same time open Chinese models are going toe-to-toe with the closed American models…</p>
+
+      <p>With a closed model, one could presumably provide a neutered version with a government-approved stamp. For open models, the risk of guardrail removal could be used to ban them outright.</p>
+
+      <p>The only way an LLM-only company can win is with an unfair advantage.</p>
+
+      <p>- James</p>
+
+      <div class="project-navigation">
+        <a class="nav-left" href="/blog9">← Blog 9</a>
+        <a class="nav-right" href="/blog">Blog Hub →</a>
+      </div>
+    </main>
+
+    <footer>
+      <p>© 2026 James L. Elia</p>
+    </footer>
+  </body>
+</html>
