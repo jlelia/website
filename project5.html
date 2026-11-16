@@ -79,6 +79,14 @@
         <li><strong>Severe Assay and Platform Batch Effects:</strong> Response metrics (AUC, IC<sub>50</sub>) are dominated by differences in screening protocol, readout technology, incubation time, and culture media. When analyzed directly, compounds cluster primarily by screening platform rather than biological mechanism.</li>
         <li><strong>Minimal Compound and Cell Line Overlap:</strong> Across four major screening platforms (PRISM, CTD&sup2;, GDSC1, GDSC2), only 43/2021 compounds and 287/1232 cell lines are tested in common across all four. Further, screen composition is heavily biased, so removing batch also removes biology.</li>
       </ul>
+
+      <figure style="text-align: center;">
+        <img src="/images/mechmap_venn.webp" alt="Venn diagram showing the overlap of compounds and cell lines across the four major screening platforms." class="content-image" loading="lazy">
+        <figcaption>
+          <strong>Overlap of Four Screening Platforms:</strong> The four major pharmacologic screening platforms (PRISM, CTD&sup2;, GDSC1, GDSC2) have minimal overlap in compounds and cell lines. Only 43/2021 compounds and 287/1232 cell lines are shared across all four platforms.
+        </figcaption>
+      </figure>
+
       <p>
         I developed <strong>MechMap</strong> in the Bindra Laboratory at Yale to overcome these limitations. By converting pharmacological sensitivity into functional genetic dependency fingerprints and embedding them into a latent manifold, MechMap enables mechanism-level queries and target deconvolution across independent screening platforms.
       </p>
@@ -129,9 +137,9 @@
       </ul>
 
         <figure style="text-align: center;">
-            <img src="/images/llm_annotate.webp" alt="Flowchart of the LLM annotation pipeline, including a nested loop for low-confidence annotations." class="content-image" loading="lazy">
+            <img src="/images/mechmap_llm.webp" alt="Flowchart of the LLM annotation pipeline, including a nested loop for low-confidence annotations." class="content-image" loading="lazy">
             <figcaption>
-            <strong>UMAP Projection of MechMap Latent Space:</strong> Compounds are colored by curated biological mechanism with shapes representing screening platforms.
+            <strong>LLM Annotation Pipeline:</strong> The Gemini API is used to standardize compound names, primary molecular targets, and hierarchical biological pathways. A nested loop re-queries low-confidence annotations to improve label quality.
             </figcaption>
         </figure>
 
