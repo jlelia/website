@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO -->
+    <meta name="description" content="MechMap unifies multi-source cancer drug sensitivity screens and DepMap CRISPR knockout profiles into a batch-corrected manifold using a Conditional VAE with supervised contrastive learning to infer drug mechanism of action.">
+    <meta name="keywords" content="James Elia, project, project5, MechMap, deep learning, PyTorch, CVAE, representation learning, CRISPR, DepMap, cancer, drug discovery, MoA">
+    <meta name="author" content="James L. Elia">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.jlelia.net/project5">
+
+    <!-- Site Icons -->
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.webp">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Project #5: MechMap: Generative Representation Learning for Drug Mechanism of Action">
+    <meta property="og:description" content="MechMap unifies multi-source cancer drug sensitivity screens and DepMap CRISPR knockout profiles into a batch-corrected manifold using a conditional VAE with supervised contrastive learning to infer drug mechanism of action.">
+    <meta property="og:image" content="https://www.jlelia.net/images/mechmap_architecture.webp">
+    <meta property="og:url" content="https://www.jlelia.net/project5">
+    <meta property="og:type" content="website">
+
+    <!-- PWA / Mobile Enhancements -->
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Performance Optimizations -->
+    <link rel="preload" as="image" href="/images/headshot.webp" imagesrcset="/images/headshot.webp 1x" fetchpriority="high">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css">
+
+    <title>Project #5: MechMap - Generative Representation Learning for Drug Mechanism of Action Discovery</title>
+  </head>
+  <body>
+    <header>
+      <div class="header-inner container">
+        <div class="brand-group">
+          <img src="/images/headshot.webp" alt="James L. Elia headshot" class="headshot" width="75" height="75">
+          <h1>James L. Elia</h1>
+        </div>
+        <nav aria-label="Primary">
+          <a href="/">Home</a>
+          <a href="/about">About</a>
+          <a href="/publications">Publications</a>
+          <a href="/projects">Projects</a>
+          <a href="/blog">Blog</a>
+          <a href="https://jael-labs.com" target="_blank" rel="noopener">Jael Labs</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <h2>Project #5: MechMap - Generative Representation Learning for Drug Mechanism of Action Discovery</h2>
+
+      <div class="tech-stack">
+        <p><strong>Built With:</strong> Python 3 | PyTorch | scikit-learn | conditional variational autoencoders (CVAEs) | supervised contrastive learning (SupCon) | LLM API integration</p>
+      </div>
+
+      <p>
+        <strong>Practical Objective</strong>: Integrate disparate cancer pharmacologic screens (PRISM, CTD&sup2;, GDSC1, GDSC2) into a unified, mechanism-aware latent manifold, enabling scalable mechanism-of-action (MoA) discovery.
+      </p>
+      <p>
+        <strong>Learning Objective</strong>: Develop expertise in generative representation learning and metric learning on high-dimensional biomedical data while building rigorous, leakage-free benchmarks.
+      </p>
+
+      <h3>Purpose of MechMap</h3>
+      <p>
+        High-throughput phenotypic drug discovery routinely yields highly potent small molecules whose biological targets remain unknown or poorly characterized. Wet-lab target deconvolution is low-throughput, expensive, and difficult to scale across thousands of compounds.
+      </p>
+      <p>
+        Large-scale pharmacogenomic consortia (e.g. the Broad and Sanger Institutes) screened thousands of small molecules across hundreds of genetically characterized cancer cell lines. However, cross-screen data integration faces two critical bottlenecks:
+      </p>
+      <ul>
+        <li><strong>Severe Assay and Platform Batch Effects:</strong> Response metrics (AUC, IC<sub>50</sub>) are dominated by differences in screening protocol, readout technology, incubation time, and culture media. When analyzed directly, compounds cluster primarily by screening platform rather than biological mechanism.</li>
+        <li><strong>Minimal Compound and Cell Line Overlap:</strong> Across four major screening platforms (PRISM, CTD&sup2;, GDSC1, GDSC2), only 43/2021 compounds and 287/1232 cell lines are tested in common across all four. Further, screen composition is heavily biased, so removing batch also removes biology.</li>
+      </ul>
+      <p>
+        I developed <strong>MechMap</strong> in the Bindra Laboratory at Yale to overcome these limitations. By converting pharmacological sensitivity into functional genetic dependency fingerprints and embedding them into a latent manifold, MechMap enables mechanism-level queries and target deconvolution across independent screening platforms.
+      </p>
+
+      <h3>Functional Fingerprinting via DepMap CRISPR Dependencies</h3>
+      <p>
+        MechMap constructs biological association vectors using genome-scale functional genomics:
+      </p>
+      <ul>
+        <li><strong>CRISPR Dependency Selection:</strong> We filter genome-wide CRISPR-Cas9 essentiality screens across matching cell lines to isolate high-variance, high-skew gene knockout profiles that capture selective vulnerabilities.</li>
+        <li><strong>Pairwise Correlation Vectors:</strong> For every compound in each screening dataset, we calculate pairwise-complete Pearson correlation coefficients between the compound's viability profile and gene knockout profiles across shared cell lines.</li>
+        <li><strong>Functional Fingerprinting:</strong> This process maps each drug to a 2,755-dimensional functional effect vector. Because CRISPR KO is a causitive intervenetion, it avoids the simplest confounders typical of RNA-seq data.</li>
+      </ul>
+
+      <figure style="text-align: center;">
+        <img src="/images/mechmap_cvae.webp" alt="MechMap End-to-End System Architecture: Data Integration, DepMap CRISPR Fingerprints, LLM Curation, and CVAE Manifold" class="content-image" loading="lazy">
+        <figcaption>
+          <strong>System Architecture:</strong> Multi-platform pharmacologic screens (PRISM, CTD&sup2;, GDSC1, GDSC2) are integrated with CRISPR-Cas9 knockout vectors to construct 2,755-dimensional functional fingerprints. An LLM annotation engine provides hierarchical target and pathway ground truth, building upon unified online sources. Fingerprints and platform one-hot vectors are trained through a conditional VAE (CVAE) with source invariance and hierarchical supervised contrastive objectives.
+        </figcaption>
+      </figure>
+
+      <h3>Generative Manifold: Conditional VAE & Hierarchical SupCon</h3>
+      <p>
+        While functional fingerprints substantially enrich for biological signal, platform-specific technical batch effects persist in the raw correlation space. To construct a biologically structured representation space, MechMap implements a multi-objective <strong>Conditional Variational Autoencoder (CVAE)</strong>:
+      </p>
+      <ul>
+        <li><strong>Encoder and Bottleneck:</strong> A 256-unit encoder with batch normalization, dropout, and leaky ReLU activations compresses the 2,755-dimensional fingerprints down to a 64-dimensional latent Gaussian distribution &mathcal;N(&mu;, &sigma;&sup2;).</li>
+        <li><strong>Source Conditioning:</strong> Screening platform identity (PRISM, CTD&sup2;, GDSC1, GDSC2) is supplied as a one-hot conditional vector to the decoder. This forces the latent bottleneck to discard source-specific technical artifacts.</li>
+        <li><strong>Hierarchical Supervised Contrastive Loss (SupCon):</strong> To organize the latent space by biological relevance, we introduce a tiered contrastive penalty that structures embeddings along a three-level biological hierarchy:
+          <ul>
+            <li><em>Same Compound across Screens (high weight):</em> Pulls identical chemical entities together regardless of which platform measured them.</li>
+            <li><em>Shared Molecular Target (medium weight):</em> Groups structurally distinct compounds that share a biological target (e.g. distinct PARP1/2 inhibitors).</li>
+            <li><em>Shared Biological Pathway (low weight):</em> Clusters compounds acting within common regulatory circuits (e.g. DNA-damage response, MAPK signaling).</li>
+          </ul>
+        </li>
+      </ul>
+
+      <h3>Automated Target & Pathway Curation with Gemini</h3>
+      <p>
+        Supervised contrastive learning requires comprehensive, clean, and standardized biological ground-truth labels. However, compound annotations across public databases (ChEMBL, PubChem, DrugBank, DepMap) are notoriously fragmented and sparse.
+      </p>
+      <p>
+        To solve this, I engineered an automated LLM curation pipeline using <strong>Google Gemini API</strong>:
+      </p>
+      <ul>
+        <li><strong>Standardized Ontology:</strong> The pipeline annotated +4,000 compounds, resolving ambiguous chemical synonyms to canonical names, primary molecular targets (HGNC gene symbols), and hierarchical primary/secondary Reactome/GO pathways.</li>
+        <li><strong>Confidence Scoring & Auditing:</strong> Each LLM-derived annotation is assigned a confidence metric and structured provenance metadata to reduce label noise prior to model training.</li>
+      </ul>
+
+        <figure style="text-align: center;">
+            <img src="/images/llm_annotate.webp" alt="Flowchart of the LLM annotation pipeline, including a nested loop for low-confidence annotations." class="content-image" loading="lazy">
+            <figcaption>
+            <strong>UMAP Projection of MechMap Latent Space:</strong> Compounds are colored by curated biological mechanism with shapes representing screening platforms.
+            </figcaption>
+        </figure>
+
+      <h3>Biological Manifold Discovery</h3>
+      <p>
+        When projected via UMAP, raw pharmacological fingerprints segregate primarily into four isolated clusters corresponding to PRISM, CTD&sup2;, GDSC1, and GDSC2. In contrast, the MechMap latent space's UMAP organizes compounds along biological mechanism. For example:
+      </p>
+      <ul>
+        <li><strong>DNA-Damage Response (DDR):</strong> Co-localization of PARP inhibitors (olaparib, rucaparib, talazoparib), ATR/ATM kinase inhibitors, and topoisomerase poisons across disparate screening sources into a unified DDR territory.</li>
+        <li><strong>Kinase Signaling Cascades:</strong> Distinct separation of receptor tyrosine kinase inhibitors (EGFR/ERBB, VEGFR) from downstream intracellular pathway modulators (MEK, RAF, PI3K/AKT/MTOR).</li>
+      </ul>
+        <figure style="text-align: center;">
+            <img src="/images/mechmap_umap.webp" alt="UMAP projection of MechMap latent space colored by biological mechanism with shapes representing batches" class="content-image" loading="lazy">
+            <figcaption>
+            <strong>UMAP Projection of MechMap Latent Space:</strong> Compounds are colored by curated biological mechanism with shapes representing screening platforms.
+            </figcaption>
+        </figure>
+      <p>
+        By projecting drugs of unknown mechanism into this latent manifold, MechMap allows biologists to infer the target from their nearest topological neighbors. It could also reveal off-target liabilities for known drugs.
+      </p>
+
+        <div class="project-navigation">
+          <a class="nav-left" href="/project4">← Project #4</a>
+          <a class="nav-right" href="/projects">Project Hub</a>
+        </div>
+    </main>
+
+    <footer>
+      <p>&copy; 2026 James L. Elia</p>
+    </footer>
+  </body>
+</html>
